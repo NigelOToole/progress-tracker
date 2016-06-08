@@ -1,0 +1,104 @@
+// ----- Layout -----
+
+// Reset the box-sizing
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+// Body reset
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #333;
+  background-color: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+
+// Type
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+}
+h1, h2, h3 {
+  margin: 15px 0;
+}
+h4, h5, h6 {
+  margin: 10px 0;
+}
+
+h1 { font-size: 38px; }
+h2 { font-size: 30px; }
+h3 { font-size: 24px; }
+h4 { font-size: 20px; }
+h5 { font-size: 16px; }
+h6 { font-size: 14px; }
+
+p {
+  margin: 0 0 15px 0;
+}
+
+// Content container
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.container:before, .container:after {
+  content: " ";
+  display: table;
+}
+
+.container:after {
+  clear: both;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+// ----- Demo styling -----
+// Container for each demo
+.demo {
+  margin: 40px 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+// Blocks of code
+pre {
+  display: block;
+  padding: 20px;
+  margin: 0 0 15px 0;
+  overflow: auto;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #eee;
+  border: 1px solid #bbb;
+}
+

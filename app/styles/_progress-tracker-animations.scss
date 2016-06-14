@@ -1,0 +1,136 @@
+// ----- Progress Tracker Animations -----
+
+// These are none essestial animations that can be easily added to the progress tracker to add visual interest.
+
+// ----- Ripple effect when marker or step is clicked, similar to Matrial Design - https://getmdl.io/components/#buttons-section -----
+// Animation fires after a user has clicked a marker or a surround <a> tag
+
+.anim-ripple {
+
+    .progress-marker {
+
+      &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 30;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+
+// Animation end state
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1);
+        transition: transform $transition-duration ease-out;
+      }
+
+    }
+
+// Animation start state
+      .progress-marker:active::before, .progress-step > a:active .progress-marker::before {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0);
+        transition-duration: 0s;
+      }
+
+}
+
+
+
+// ----- Large ripple effect which expands outside of the bounds of marker -----
+.anim-ripple-large {
+
+    .progress-marker {
+
+      &::before {
+        content: "";
+        display: block;
+        width: 200%;
+        height: 200%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 30;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+
+// Animation end state
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1);
+        transition: transform $transition-duration ease-out;
+      }
+
+    }
+
+// Animation start state
+      .progress-marker:active::before, .progress-step > a:active .progress-marker::before {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0);
+        transition-duration: 0s;
+      }
+
+}
+
+
+
+// ----- Double ripple effect, more similar to an actual water ripple -----
+.anim-ripple-double {
+
+    .progress-marker {
+
+      &::before, &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 30;
+        border: 3px solid rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+
+// Animation end state
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1);
+        transition: transform $transition-duration ease-out;
+      }
+
+      &::after {
+        transition-delay: ($transition-duration / 2);
+      }
+
+    }
+
+// Animation start state
+      .progress-marker:active::before, .progress-marker:active::after, .progress-step > a:active .progress-marker::before, .progress-step > a:active .progress-marker::after {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0);
+        transition-duration: 0s;
+      }
+
+}
+
+
+// ----- Animate filling up the path between markers when it becomes active.
+.anim-path {
+
+  .progress-step {
+
+    &::after {
+      background-image: linear-gradient(to right, $progress-color-grey-light 50%, $progress-color-grey 50%);
+      background-size: 200% 100%;
+      background-position: 0% 100%;
+      transition: background-position $transition-duration ease-out;
+    }
+
+    &.is-complete::after {
+      background-position: -100% 100%;
+    }
+
+  }
+
+}

@@ -1,0 +1,59 @@
+// ----- Progress Tracker Theme -----
+
+// You can use the theme to quickly style the progress tracker, although I recommend updating the styles in the progress tracker.
+
+// Add in custom colors here
+$marker-color-bg-inactive:      $progress-color-grey-light;
+$marker-color-border-inactive:  $progress-color-grey-light;
+$marker-color-text-inactive:    #fff;
+
+$marker-color-bg-active:        $progress-color;
+$marker-color-border-active:    $progress-color;
+$marker-color-text-active:      #fff;
+
+$marker-color-bg-complete:      $progress-color-dark;
+$marker-color-border-complete:  $progress-color-dark;
+$marker-color-text-complete:    #fff;
+
+$marker-color-bg-hover:         $progress-color-light;
+$marker-color-border-hover:     $progress-color-light;
+$marker-color-text-hover:       #fff;
+
+$path-color-inactive:           $progress-color-grey-light;
+$path-color-complete:           $progress-color-grey;
+
+$text-color-inactive:           $progress-color-grey-dark;
+$text-color-active:             $progress-color-grey-dark;
+$text-color-complete:           $progress-color-grey-dark;
+$text-color-hover:              $progress-color-grey-dark;
+
+
+
+// States
+  .progress-step {
+
+    // Inactive - Default state
+    @include progress-state($marker-color-bg-inactive, $marker-color-border-inactive, $marker-color-text-inactive, $path-color-inactive, $text-color-inactive);
+
+    // Active state
+    &.is-active {
+      @include progress-state($marker-color-bg-active, $marker-color-border-active, $marker-color-text-active, null, $text-color-active);
+    }
+
+    // Complete state
+    &.is-complete {
+      @include progress-state($marker-color-bg-complete, $marker-color-border-complete, $marker-color-text-complete, $path-color-complete, $text-color-complete);
+    }
+
+    // Hover state
+    &:hover {
+      @include progress-state($marker-color-bg-hover, $marker-color-border-hover, $marker-color-text-hover, null, $text-color-hover);
+    }
+
+    // Path animation
+    .anim-path &::after {
+      background-image: linear-gradient(to right, $path-color-inactive 50%, $path-color-complete 50%);
+    }
+
+  }
+

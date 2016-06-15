@@ -1,5 +1,7 @@
 // ----- Progress Tracker -----
 
+// ----- Variables -----
+
 // Based on https://github.com/christabor/css-progress-wizard but heavily reworked.
 
 // Colours
@@ -19,21 +21,22 @@ $marker-size-third:         ($marker-size / 3);
 $marker-size-quarter:       ($marker-size / 4);
 $marker-spacing:            10px !default;
 
-$marker-size-square:        8px !default;
-
 $path-height:               4px !default;
 $path-position:             $marker-size-half - ($path-height / 2);
 
 $text-padding:              $marker-size-half !default;
 $text-padding-X:            $marker-size-third !default;
 $text-padding-Y:            $marker-size-half !default;
-$text-padding--vertical:    $marker-size + $marker-size-half;
+$text-padding--vertical:    $marker-size + $marker-size-half !default;
 
 // Transitions
 $transition-duration:       0.3s !default;
 
 
-// Main element
+
+// ----- Elements -----
+
+// Container element
 .progress-tracker {
   display: flex;
   margin: 40px auto;
@@ -66,11 +69,10 @@ $transition-duration:       0.3s !default;
       right: - $marker-size-half;
       width: 100%;
       height: $path-height;
-      transition: $transition-duration background-color;
+      transition: background-color $transition-duration;
     }
 
   }
-
 
 // Progress marker
     .progress-marker {
@@ -81,9 +83,9 @@ $transition-duration:       0.3s !default;
       z-index: 20;
       width: $marker-size;
       height: $marker-size;
-      padding-bottom: 2px;
-      font-weight: bold;
+      padding-bottom: 2px; // To align text within the marker
       color: #fff;
+      font-weight: bold;
       border: 2px solid transparent;
       border-radius: 50%;
       transition: background-color, border-color;
@@ -103,22 +105,23 @@ $transition-duration:       0.3s !default;
     }
 
 
-// States Mixin
-@mixin progress-state($marker-bg-color, $marker-border-color: null, $marker-text-color: null, $path-color: null, $text-color: null) {
+// Step state mixin - The first arugment is required and the rest are optional, if you pass in null the value will not be changed.
+@mixin progress-state($marker-color-bg, $marker-color-border: null, $marker-color-text: null, $path-color: null, $text-color: null) {
   .progress-marker {
-    color: $marker-text-color;
-    background-color: $marker-bg-color;
-    border-color: $marker-border-color;
+    color: $marker-color-text;
+    background-color: $marker-color-bg;
+    border-color: $marker-color-border;
   }
 
   &::after {
     background-color: $path-color;
   }
 
-  .progress-text, a .progress-text {
+  .progress-text, .progress-step > a .progress-text {
     color: $text-color;
   }
 }
+
 
 // States
   .progress-step {
@@ -142,7 +145,6 @@ $transition-duration:       0.3s !default;
     }
 
   }
-
 
 
 // ----- Modifiers -----
@@ -208,6 +210,7 @@ $transition-duration:       0.3s !default;
       margin-right: ($marker-size-half + $marker-spacing);
     }
   }
+
 }
 
 
@@ -230,6 +233,7 @@ $transition-duration:       0.3s !default;
   .progress-step::after {
     top: auto;
   }
+
 }
 
 
@@ -262,24 +266,3 @@ $transition-duration:       0.3s !default;
       padding-bottom: $text-padding--vertical;
     }
 }
-
-
-
-
-
-// .progress-tracker--square {
-
-//   // .progress-step {
-
-//   //   &::after {
-//   //     top: ($marker-size-square / 2) - ($path-height / 2);;
-//   //   }
-//   // }
-
-//     .progress-marker {
-//       border-radius: 0;
-//       // width: $marker-size-square;
-//       // height: $marker-size-square;
-//     }
-// }
-

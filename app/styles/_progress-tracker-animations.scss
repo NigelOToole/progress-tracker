@@ -1,6 +1,37 @@
 // ----- Progress Tracker Animations -----
 
-// These are none essestial animations that can be easily added to the progress tracker to add visual interest.
+// These are optional animations that can be easily added to the progress tracker to add visual interest.
+
+$ripple-color: rgba(0, 0, 0, 0.3) !default;
+
+// Ripple elements mixin
+@mixin ripple-element() {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 30;
+  background: $ripple-color;
+  border-radius: 50%;
+
+  // Animation end state
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform, opacity;
+  transition-duration: $transition-duration;
+  transition-timing-function: ease-out;
+}
+
+@mixin ripple-element-active() {
+  // Animation start state
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(0);
+  transition-duration: 0s;
+}
+
 
 // ----- Ripple effect when marker or step is clicked, similar to Matrial Design - https://getmdl.io/components/#buttons-section -----
 // Animation fires after a user has clicked a marker or a surround <a> tag
@@ -10,30 +41,13 @@
     .progress-marker {
 
       &::before {
-        content: "";
-        display: block;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        z-index: 30;
-        background: rgba(0, 0, 0, 0.3);
-        border-radius: 50%;
-
-// Animation end state
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(1);
-        transition: transform $transition-duration ease-out;
+        @include ripple-element();
       }
 
     }
 
-// Animation start state
       .progress-marker:active::before, .progress-step > a:active .progress-marker::before {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(0);
-        transition-duration: 0s;
+        @include ripple-element-active();
       }
 
 }
@@ -46,30 +60,15 @@
     .progress-marker {
 
       &::before {
-        content: "";
-        display: block;
+        @include ripple-element();
         width: 200%;
         height: 200%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        z-index: 30;
-        background: rgba(0, 0, 0, 0.3);
-        border-radius: 50%;
-
-// Animation end state
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(1);
-        transition: transform $transition-duration ease-out;
       }
 
     }
 
-// Animation start state
       .progress-marker:active::before, .progress-step > a:active .progress-marker::before {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(0);
-        transition-duration: 0s;
+        @include ripple-element-active();
       }
 
 }
@@ -82,21 +81,10 @@
     .progress-marker {
 
       &::before, &::after {
-        content: "";
-        display: block;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        z-index: 30;
-        border: 3px solid rgba(0, 0, 0, 0.3);
-        border-radius: 50%;
+        @include ripple-element();
+        background: none;
+        border: 3px solid $ripple-color;
 
-// Animation end state
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(1);
-        transition: transform $transition-duration ease-out;
       }
 
       &::after {
@@ -105,14 +93,12 @@
 
     }
 
-// Animation start state
       .progress-marker:active::before, .progress-marker:active::after, .progress-step > a:active .progress-marker::before, .progress-step > a:active .progress-marker::after {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(0);
-        transition-duration: 0s;
+        @include ripple-element-active();
       }
 
 }
+
 
 
 // ----- Animate filling up the path between markers when it becomes active.

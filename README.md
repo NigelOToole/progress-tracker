@@ -24,23 +24,23 @@ You can also just import progress-tracker.scss into your own project and modify 
 Follow the code example below for basic usage, each demo sets the first two steps as complete, the third step as active and the last two steps as inactive. For additional styles add a modifier classes to the ul and add additional markup as needed in the examples.
 
 ```html
-&lt;ul class=&quot;progress-tracker&quot;&gt;
-  &lt;li class=&quot;progress-step is-complete&quot;&gt;
-    &lt;span class=&quot;progress-marker&quot;&gt;&lt;/span&gt;
-  &lt;/li&gt;
-  &lt;li class=&quot;progress-step is-complete&quot;&gt;
-    &lt;span class=&quot;progress-marker&quot;&gt;&lt;/span&gt;
-  &lt;/li&gt;
-  &lt;li class=&quot;progress-step is-active&quot;&gt;
-    &lt;span class=&quot;progress-marker&quot;&gt;&lt;/span&gt;
-  &lt;/li&gt;
-  &lt;li class=&quot;progress-step&quot;&gt;
-    &lt;span class=&quot;progress-marker&quot;&gt;&lt;/span&gt;
-  &lt;/li&gt;
-  &lt;li class=&quot;progress-step&quot;&gt;
-    &lt;span class=&quot;progress-marker&quot;&gt;&lt;/span&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<ul class="progress-tracker">
+  <li class="progress-step is-complete">
+    <span class="progress-marker"></span>
+  </li>
+  <li class="progress-step is-complete">
+    <span class="progress-marker"></span>
+  </li>
+  <li class="progress-step is-active">
+    <span class="progress-marker"></span>
+  </li>
+  <li class="progress-step">
+    <span class="progress-marker"></span>
+  </li>
+  <li class="progress-step">
+    <span class="progress-marker"></span>
+  </li>
+</ul>
 ```
 
 

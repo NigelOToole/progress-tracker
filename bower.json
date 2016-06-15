@@ -1,0 +1,31 @@
+{
+  "name": "progress-tracker",
+  "description": "A progress tracker written in SASS with flexbox to be flexible and responsive out of the box. This can be used to illustrate a multi stage process e.g. form, quiz or a timeline.</h3>",
+  "main": "gulpfile.js",
+  "authors": [
+    "Nigel O Toole <pure@purestructure.com> (http://www.purestructure.com)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "progress",
+    "tracker",
+    "progress",
+    "multi",
+    "step",
+    "multi-step",
+    "multi",
+    "stage",
+    "multi-stage",
+    "sass",
+    "css",
+    "gulp"
+  ],
+  "homepage": "https://github.com/NigelOToole/progress-tracker",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

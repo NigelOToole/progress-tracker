@@ -22,7 +22,13 @@ body {
 }
 
 a {
+  color: #1976D2;
   text-decoration: none;
+  transition: color 0.3s;
+
+  &:hover, &:focus {
+    color: #56ADF5;
+  }
 }
 
 // Type
@@ -30,7 +36,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
 }
 h1, h2, h3 {
-  margin: 15px 0;
+  margin: 20px 0;
 }
 h4, h5, h6 {
   margin: 10px 0;
@@ -94,8 +100,10 @@ p {
 pre {
   display: block;
   padding: 20px;
-  margin: 0 0 15px 0;
+  margin: 0 0 20px 0;
   overflow: auto;
+  font-family: 'Cutive Mono', monospace;
+  font-size: 14px;
   word-break: break-all;
   word-wrap: break-word;
   background-color: #eee;

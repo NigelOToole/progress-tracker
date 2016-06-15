@@ -6,44 +6,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Progress Tracker</title>
 
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
-    <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cutive+Mono|Lato:300">
   </head>
 
   <body>
 
     <div class="container">
 
-      <h1>Progress Tracker</h1>
-      <h3>A progress tracker written in SASS/CSS with flexbox to be flexible and responsive out of the box.<br>This can be used to show the stages of a process to a user like a multi stage form or a timeline.</h3>
+      <div class="demo">
+
+        <h1>Progress Tracker</h1>
+        <h3>A progress tracker written in SASS with flexbox to be flexible and responsive out of the box.<br>
+        This can be used to illustrate a multi stage process e.g. form, quiz or a timeline.</h3>
+
+        <ul class="progress-tracker anim-ripple">
+          <li class="progress-step is-complete">
+            <span class="progress-marker"></span>
+          </li>
+          <li class="progress-step is-complete">
+            <span class="progress-marker"></span>
+          </li>
+          <li class="progress-step is-active">
+            <span class="progress-marker"></span>
+          </li>
+          <li class="progress-step">
+            <span class="progress-marker"></span>
+          </li>
+          <li class="progress-step">
+            <span class="progress-marker"></span>
+          </li>
+        </ul>
+
+      </div>
 
 
       <div class="demo">
-        <h2>Usage</h2>
-        <p>Follow the code example below for basic usage, each demo shows the first two steps as complete, the thrid step being active and the last two steps being inactive. Modifier classes are added to the ul for different styles.</p>
+        <h2>Installation</h2>
+
+        <h3><a href="https://github.com/NigelOToole/progress-tracker/archive/master.zip">Get from GibHub</a></h3>
+
+        <h3>npm</h3>
 <pre>
-  &lt;ul class=&quot;progress-tracker&quot;&gt;
-    &lt;li class=&quot;progress-step is-complete&quot;&gt;
-      &lt;span class=&quot;progress-marker&quot;&gt;&lt;/span&gt;
-    &lt;/li&gt;
-    &lt;li class=&quot;progress-step is-complete&quot;&gt;
-      &lt;span class=&quot;progress-marker&quot;&gt;&lt;/span&gt;
-    &lt;/li&gt;
-    &lt;li class=&quot;progress-step is-active&quot;&gt;
-      &lt;span class=&quot;progress-marker&quot;&gt;&lt;/span&gt;
-    &lt;/li&gt;
-    &lt;li class=&quot;progress-step&quot;&gt;
-      &lt;span class=&quot;progress-marker&quot;&gt;&lt;/span&gt;
-    &lt;/li&gt;
-    &lt;li class=&quot;progress-step&quot;&gt;
-      &lt;span class=&quot;progress-marker&quot;&gt;&lt;/span&gt;
-    &lt;/li&gt;
-  &lt;/ul&gt;
+<code>$ npm install progress-tracker --save-dev</code>
+</pre>
+
+        <h3>bower</h3>
+<pre>
+<code>$ bower install progress-tracker --save-dev</code>
+</pre>
+
+      </div>
+
+      <div class="demo">
+        <h2>Usage</h2>
+        <p>Once you have downloaded the code, you can run $ npm install and $ gulp serve to run this demo.</p>
+        <p>You can also just import progress-tracker.scss into your own project and modify as needed. Optional files are progress-tracker-animations.scss to add animations and progress-tracker-theme.scss for quicker theming.</p>
+        <p>Follow the code example below for basic usage, each demo sets the first two steps as complete, the third step as active and the last two steps as inactive. For additional styles add a modifier classes to the ul and add additional markup as needed in the examples.</p>
+<pre>
+<code>&lt;ul class=&quot;progress-tracker&quot;&gt;
+  &lt;li class=&quot;progress-step is-complete&quot;&gt;
+    &lt;span class=&quot;progress-marker&quot;&gt;&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;progress-step is-complete&quot;&gt;
+    &lt;span class=&quot;progress-marker&quot;&gt;&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;progress-step is-active&quot;&gt;
+    &lt;span class=&quot;progress-marker&quot;&gt;&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;progress-step&quot;&gt;
+    &lt;span class=&quot;progress-marker&quot;&gt;&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;progress-step&quot;&gt;
+    &lt;span class=&quot;progress-marker&quot;&gt;&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code>
 </pre>
 
       </div>
@@ -164,32 +201,6 @@
         </ul>
 
       </div>
-
-<!--
-      <div class="demo">
-        <h3>Square markers</h3>
-
-        <ul class="progress-tracker progress-tracker--square">
-          <li class="progress-step is-complete">
-            <span class="progress-marker"></span>
-          </li>
-          <li class="progress-step is-complete">
-            <span class="progress-marker"></span>
-          </li>
-          <li class="progress-step is-active">
-            <span class="progress-marker"></span>
-          </li>
-          <li class="progress-step">
-            <span class="progress-marker"></span>
-          </li>
-          <li class="progress-step">
-            <span class="progress-marker"></span>
-          </li>
-        </ul>
-
-      </div>
-
- -->
 
       <div class="demo">
         <h3>Spaced markers</h3>
@@ -441,8 +452,6 @@
         </ul>
 
       </div>
-
-
 
       <div class="demo">
         <h2>Animations</h2>

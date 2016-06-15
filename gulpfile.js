@@ -25,7 +25,7 @@ gulp.task('serve', ['styles'], () => {
     notify: false,
     port: 9000,
     server: {
-      baseDir: ['app']
+      baseDir: ['']
     }
   });
 

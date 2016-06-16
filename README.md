@@ -9,12 +9,12 @@ A progress tracker written in SASS with flexbox to be flexible and responsive ou
 
 ###npm
 ```javascript
-$ npm install progress-tracker --save-dev
+$ npm install progress-tracker --save
 ```
 
 ###bower
 ```javascript
-$ bower install progress-tracker --save-dev
+$ bower install progress-tracker --save
 ```
 
 

@@ -83,7 +83,7 @@ $transition-duration:       0.3s !default;
       height: $marker-size;
       padding-bottom: 2px; // To align text within the marker
       color: #fff;
-      font-weight: bold;
+      font-weight: 400;
       border: 2px solid transparent;
       border-radius: 50%;
       transition: background-color, border-color;

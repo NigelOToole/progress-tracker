@@ -1,6 +1,6 @@
 {
   "name": "progress-tracker",
-  "description": "A progress tracker written in SASS with flexbox to be flexible and responsive out of the box. This can be used to illustrate a multi stage process e.g. form, quiz or a timeline.</h3>",
+  "description": "A progress tracker written in SASS with flexbox to be flexible and responsive out of the box. This can be used to illustrate a multi stage process e.g. form, quiz or a timeline.",
   "version": "1.0.0",
   "main": "gulpfile.js",
   "dependencies": {},

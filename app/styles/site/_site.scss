@@ -35,6 +35,10 @@ a {
 // Type
 h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
+
+  small {
+    font-size: 60%;
+  }
 }
 h1, h2, h3 {
   margin: 20px 0;

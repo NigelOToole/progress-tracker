@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Progress Tracker</title>
 
-    <link rel="stylesheet" href="app/styles/main.css">
+    <link rel="stylesheet" href="app/styles/site.css">
+    <link rel="stylesheet" href="app/styles/progress-tracker.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cutive+Mono|Lato:300,400">
   </head>
 
@@ -672,10 +673,10 @@ $ gulp serve</code>
 
 
       <div class="demo" id="anim-path">
-        <h3>Fill path when step is complete</h3>
+        <h3>Fill path when step is complete <small> - Click on a step to see the effect</small></h3>
 
         <ul class="progress-tracker progress-tracker--text anim-path">
-          <li class="progress-step is-complete">
+          <li class="progress-step is-active">
             <a href="#/">
               <span class="progress-marker"></span>
               <span class="progress-text">
@@ -684,7 +685,7 @@ $ gulp serve</code>
             </a>
           </li>
 
-          <li class="progress-step is-complete">
+          <li class="progress-step">
             <a href="#/">
               <span class="progress-marker"></span>
               <span class="progress-text">
@@ -693,7 +694,7 @@ $ gulp serve</code>
             </a>
           </li>
 
-          <li class="progress-step is-active">
+          <li class="progress-step">
             <a href="#/">
               <span class="progress-marker"></span>
               <span class="progress-text">

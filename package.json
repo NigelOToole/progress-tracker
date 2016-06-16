@@ -2,7 +2,7 @@
   "name": "progress-tracker",
   "description": "A SASS progress tracker made to be flexible and responsive out of the box. Use to illustrate a multi stage process like a multi step form.",
   "version": "1.0.0",
-  "main": "gulpfile.js",
+  "main": "app/styles/progress-tracker.scss",
   "dependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

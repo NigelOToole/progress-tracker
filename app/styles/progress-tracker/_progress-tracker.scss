@@ -46,7 +46,7 @@ $transition-duration:       0.3s !default;
   .progress-step {
     display: block;
     position: relative;
-    flex: 1 1 auto;
+    flex: 1 1 0%;
     margin: 0;
     padding: 0;
     min-width: $marker-size; // For a flexbox bug in firefox that wont allow the text overflow on the text
@@ -68,6 +68,13 @@ $transition-duration:       0.3s !default;
       width: 100%;
       height: $path-height;
       transition: background-color $transition-duration;
+    }
+
+    // Active state
+    &.is-active {
+      .progress-title {
+        font-weight: 400;
+      }
     }
 
   }
@@ -232,7 +239,40 @@ $transition-duration:       0.3s !default;
     top: auto;
   }
 
+    .progress-text {
+      height: 100%;
+    }
+
+    .progress-marker {
+      bottom: $marker-size;
+    }
+
 }
+
+
+// Text inline with markers
+.progress-tracker--text-inline {
+
+  .progress-step {
+    display: flex;
+  }
+
+  .progress-text {
+    z-index: 40;
+    max-width: 70%;
+    white-space: nowrap;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: #fff;
+  }
+
+    .progress-title {
+      display: inline;
+      margin: 0;
+    }
+
+}
+
 
 
 // Vertical layout

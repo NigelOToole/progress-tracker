@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="description" content="">
@@ -13,14 +13,26 @@
 
   <body>
 
-    <div class="container">
+    <header class="header">
+      <div class="container">
 
+        <h1 class="logo-text">
+          Progress Tracker
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 10" class="logo"><line class="line" x1="2" y1="5" x2="52" y2="5"></line><circle class="circle1" cx="5" cy="5" r="4.5"></circle><circle class="circle2" cx="27" cy="5" r="4.5"></circle><circle class="circle3" cx="49" cy="5" r="4.5"></circle></svg>
+        </h1>
+
+        <a href="https://github.com/NigelOToole/progress-tracker/archive/master.zip" class="btn btn-white">Download from GibHub</a>
+      </div>
+    </header>
+
+    <div class="container">
 
       <div class="demo">
 
-        <h1>Progress Tracker</h1>
-        <h3>A progress tracker written in SASS with flexbox to be flexible and responsive out of the box.<br>
-        This can be used to illustrate a multi stage process e.g. form, quiz or a timeline.</h3>
+        <div class="intro">
+          <h3>A flexible SASS component to illustrate the steps in a multi step process e.g. a multi step form, a timeline or a quiz.</h3>
+          <h4>Its written in SASS using flexbox to be flexible and responsive. It can be easily customized, includes many possible layouts and works in all major browsers from IE10 up.</h4>
+        </div>
 
         <ul class="progress-tracker anim-ripple">
           <li class="progress-step is-complete">
@@ -47,11 +59,11 @@
       </div>
 
 
-      <div class="demo">
+      <div class="demo install">
         <h2>Installation</h2>
 
-        <div class="row install-btns">
-          <div class="col-sm-6">
+        <div class="row">
+          <div class="col-sm-12">
             <a href="https://github.com/NigelOToole/progress-tracker/archive/master.zip" class="btn">Download from GibHub</a>
             <a href="https://raw.githubusercontent.com/NigelOToole/progress-tracker/master/app/styles/progress-tracker.css" class="btn">Download CSS</a>
           </div>
@@ -75,6 +87,8 @@
 
       </div>
 
+
+
       <div class="demo">
         <h2>Usage</h2>
         <p>Once you have downloaded the code, run the commands below to view the demo.</p>
@@ -83,8 +97,8 @@
 $ gulp serve</code>
 </pre>
 
-        <p>You can also just import <strong>progress-tracker.scss</strong> into your own project and modify as needed. Optional files are <strong>progress-tracker-animations.scss</strong> to add animations and <strong>progress-tracker-theme.scss</strong> for quicker theming.</p>
-        <p>Follow the code example below for basic usage, each demo sets the first two steps as complete, the third step as active and the last two steps as inactive. For additional styles add a modifier classes to the ul and add additional markup as needed in the examples.</p>
+        <p>You can also import <strong>progress-tracker.scss</strong> into your own project directly and modify as needed. You can also optionally import <strong>progress-tracker-animations.scss</strong> to add animations and <strong>progress-tracker-theme.scss</strong> for quicker theming.</p>
+        <p>Follow the HTML code example below for basic usage: each demo sets the first two steps as complete, the third step as active and the last two steps as inactive. For additional styles add a modifier classes to the ul and add additional markup as needed in the examples below.</p>
 
 <pre>
 <code>&lt;ul class=&quot;progress-tracker&quot;&gt;
@@ -273,6 +287,7 @@ $ gulp serve</code>
       </div>
 
       <div class="demo">
+        <h2>Text on markers</h2>
         <h3>Text below markers</h3>
 
         <ul class="progress-tracker progress-tracker--text">
@@ -563,6 +578,49 @@ $ gulp serve</code>
 
       </div>
 
+
+      <div class="demo">
+        <h3>Square markers</h3>
+
+        <ul class="progress-tracker progress-tracker--text progress-tracker--square">
+          <li class="progress-step is-complete">
+            <span class="progress-marker"></span>
+            <span class="progress-text">
+              <h4 class="progress-title">Step 1</h4>
+            </span>
+          </li>
+
+          <li class="progress-step is-complete">
+            <span class="progress-marker"></span>
+            <span class="progress-text">
+              <h4 class="progress-title">Step 2</h4>
+            </span>
+          </li>
+
+          <li class="progress-step is-active">
+            <span class="progress-marker"></span>
+            <span class="progress-text">
+              <h4 class="progress-title">Step 3</h4>
+            </span>
+          </li>
+
+          <li class="progress-step">
+            <span class="progress-marker"></span>
+            <span class="progress-text">
+              <h4 class="progress-title">Step 4</h4>
+            </span>
+          </li>
+
+          <li class="progress-step">
+            <span class="progress-marker"></span>
+            <span class="progress-text">
+              <h4 class="progress-title">Step 5</h4>
+            </span>
+          </li>
+        </ul>
+
+      </div>
+
       <div class="demo">
         <h2>Animations <small> - Click on a step to see the effect</small></h2>
         <h3>Ripple effect</h3>
@@ -787,35 +845,35 @@ $ gulp serve</code>
             <span class="progress-marker"></span>
             <span class="progress-text">
               <h4 class="progress-title">Step 1</h4>
-              Summary text explaining this step to the user.
+              Summary text explaining this step to the user
             </span>
           </li>
           <li class="progress-step is-complete">
             <span class="progress-marker"></span>
             <span class="progress-text">
               <h4 class="progress-title">Step 2</h4>
-              Summary text explaining this step to the user.
+              Summary text explaining this step to the user
             </span>
           </li>
           <li class="progress-step is-active">
             <span class="progress-marker"></span>
             <span class="progress-text">
               <h4 class="progress-title">Step 3</h4>
-              Summary text explaining this step to the user.
+              Summary text explaining this step to the user
             </span>
           </li>
           <li class="progress-step">
             <span class="progress-marker"></span>
             <span class="progress-text">
               <h4 class="progress-title">Step 4</h4>
-              Summary text explaining this step to the user.
+              Summary text explaining this step to the user
             </span>
           </li>
           <li class="progress-step">
             <span class="progress-marker"></span>
             <span class="progress-text">
               <h4 class="progress-title">Step 5</h4>
-              Summary text explaining this step to the user.
+              Summary text explaining this step to the user
             </span>
           </li>
         </ul>
@@ -823,6 +881,12 @@ $ gulp serve</code>
       </div>
 
     </div>
+
+    <footer class="footer">
+      <div class="container">
+        Made by Nigel O Toole <a href="http://www.purestructure.com" target="_blank">pure structure</a>
+      </div>
+    </footer>
 
 
     <script src="app/scripts/site.js"></script>

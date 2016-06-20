@@ -26,6 +26,7 @@ html {
 }
 
 body {
+  padding-top: 85px;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 300;
@@ -80,7 +81,7 @@ strong {
   vertical-align: middle;
   cursor: pointer;
   border: 1px solid #bbb;
-  padding: 6px 12px;
+  padding: 4px 12px 6px 12px;
   font-size: 18px;
   background-color: #fff;
   border-radius: 4px;
@@ -89,6 +90,12 @@ strong {
   &:hover, &:active {
     background-color: #f3f3f3;
   }
+}
+
+.btn-white {
+  color: #fff;
+  border-color: #fff;
+  background-color: transparent;
 }
 
 
@@ -142,6 +149,97 @@ strong {
 
 
 
+// ----- Header and footer -----
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  padding: 15px 0;
+  color: #fff;
+  background-color: #1976D2;
+  box-shadow: 0 0 6px 6px rgba(0,0,0,0.1);
+
+  .logo {
+    float: right;
+    margin: 22px 0 0 15px;
+    width: 44px;
+    height: 8px;
+
+    @media (min-width: 768px) {
+      width: 54px;
+      height: 10px;
+    }
+
+    .line {
+      fill: none;
+      stroke: #fff;
+      stroke-width: 2;
+      stroke-dasharray: 52px;
+      stroke-dashoffset: 52px;
+      animation: linefill 2.2s linear forwards;
+    }
+
+    circle {
+      fill: #ccc;
+    }
+    .circle1 {
+      fill: #fff;
+    }
+    .circle2, .circle3 {
+      animation: circleactive .2s linear forwards;
+    }
+    .circle2 {
+      animation-delay: 1s;
+    }
+    .circle3 {
+      animation-delay: 2s;
+    }
+  }
+
+  .logo-text, .btn {
+    margin: 0;
+  }
+
+  .logo-text {
+    @media (max-width: 767px) {
+      font-size: 30px;
+    }
+    @media (min-width: 768px) {
+      display: inline-block;
+    }
+  }
+
+  .btn {
+    margin-top: 7px;
+    @media (min-width: 768px) {
+      float: right;
+    }
+  }
+
+}
+
+@keyframes linefill {
+  100% {
+    stroke-dashoffset: 0px;
+  }
+}
+
+@keyframes circleactive {
+  to {
+    fill: #fff;
+  }
+}
+
+
+.footer {
+  padding-bottom: 15px;
+  font-size: 12px;
+  text-align: center;
+}
+
+
+
 // ----- Demo styling -----
 // Container for each demo
 .demo {
@@ -165,8 +263,17 @@ pre {
   border-radius: 4px;
 }
 
-.install-btns {
-  .btn:first-child {
+
+
+.install {
+
+  .btn {
     margin-right: 15px;
+    margin-bottom: 15px;
   }
+
+  h3 {
+    margin-top: 0;
+  }
+
 }

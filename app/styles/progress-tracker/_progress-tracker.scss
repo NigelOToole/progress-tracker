@@ -61,7 +61,7 @@ $transition-duration:       0.3s !default;
       content: '';
       display: block;
       position: absolute;
-      z-index: 10;
+      z-index: -10;
       top: $path-position;
       bottom: $path-position;
       right: - $marker-size-half;
@@ -75,6 +75,10 @@ $transition-duration:       0.3s !default;
       .progress-title {
         font-weight: 400;
       }
+    }
+
+    > a {
+      display: block;
     }
 
   }
@@ -127,7 +131,6 @@ $transition-duration:       0.3s !default;
   }
 }
 
-
 // States
   .progress-step {
 
@@ -150,6 +153,7 @@ $transition-duration:       0.3s !default;
     }
 
   }
+
 
 
 // ----- Modifiers -----
@@ -257,22 +261,36 @@ $transition-duration:       0.3s !default;
     display: flex;
   }
 
-  .progress-text {
-    z-index: 40;
-    max-width: 70%;
-    white-space: nowrap;
-    padding-top: 0;
-    padding-bottom: 0;
-    background-color: #fff;
-  }
-
-    .progress-title {
-      display: inline;
-      margin: 0;
+    .progress-text {
+      position: relative;
+      z-index: 30;
+      max-width: 70%;
+      white-space: nowrap;
+      padding-top: 0;
+      padding-bottom: 0;
+      background-color: #fff;
     }
+
+      .progress-title {
+        margin: 0;
+      }
 
 }
 
+
+// Square markers
+.progress-tracker--square {
+
+  .progress-step {
+    padding-top: 0;
+  }
+
+    .progress-marker {
+      transform: scaleX(0.33) translateY(- $path-position);
+      border-radius: 0;
+    }
+
+}
 
 
 // Vertical layout
@@ -280,6 +298,7 @@ $transition-duration:       0.3s !default;
   flex-direction: column;
 
   .progress-step {
+    flex: 1 1 auto;
 
     &::after {
       right: auto;

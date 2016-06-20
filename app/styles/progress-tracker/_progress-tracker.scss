@@ -131,6 +131,7 @@ $transition-duration:       0.3s !default;
   }
 }
 
+
 // States
   .progress-step {
 
@@ -139,7 +140,7 @@ $transition-duration:       0.3s !default;
 
     // Active state
     &.is-active {
-      @include progress-state($progress-color);
+      @include progress-state($progress-color, $path-color: $progress-color-grey);
     }
 
     // Complete state

@@ -65,8 +65,9 @@
 
         <div class="row">
           <div class="col-sm-12">
-            <a href="https://github.com/NigelOToole/progress-tracker/archive/master.zip" class="btn">Download from GitHub</a>
+            <a href="https://github.com/NigelOToole/progress-tracker/archive/master.zip" class="btn">Download</a>
             <a href="https://raw.githubusercontent.com/NigelOToole/progress-tracker/master/app/styles/progress-tracker.css" class="btn">Download CSS</a>
+            <a href="https://github.com/NigelOToole/progress-tracker/" target="_blank" class="btn">View on GitHub</a>
           </div>
         </div>
 
@@ -99,8 +100,12 @@ $ gulp serve</code>
 </pre>
 
         <p>You can also import <strong>progress-tracker.scss</strong> into your own project directly and modify as needed. You can also optionally import <strong>progress-tracker-animations.scss</strong> to add animations and <strong>progress-tracker-theme.scss</strong> for quicker theming. </p>
+
         <p>The JS that is part of this site is just for demonstration purposes, add your own JS as needed to toggle the classes for the step states.</p>
-        <p>Follow the HTML code example below for basic usage; each demo sets the first two steps as complete, the third step as active and the last two steps as inactive. For additional styles add modifier classes and additional markup as needed in the examples below.</p>
+
+        <p>Follow the HTML code example below for basic usage; each demo sets the first two steps as complete, the third step as active and the last two steps as inactive.</p>
+
+        <p>For additional styles add modifier classes and additional markup as needed in the examples below. You can add multiple modifier classes to achieve additional styles that those shown below.</p>
 
 <pre>
 <code>&lt;ul class=&quot;progress-tracker&quot;&gt;
@@ -123,6 +128,8 @@ $ gulp serve</code>
 </pre>
 
       </div>
+
+
 
       <div class="demo">
         <h2>Examples</h2>
@@ -153,6 +160,8 @@ $ gulp serve</code>
 
       </div>
 
+
+
       <div class="demo">
         <h3>Center aligned markers</h3>
 
@@ -179,6 +188,8 @@ $ gulp serve</code>
         </ul>
 
       </div>
+
+
 
       <div class="demo">
         <h3>Right aligned markers</h3>
@@ -207,6 +218,8 @@ $ gulp serve</code>
 
       </div>
 
+
+
       <div class="demo">
         <h3>Numbers or letters in the markers</h3>
 
@@ -234,6 +247,8 @@ $ gulp serve</code>
 
       </div>
 
+
+
       <div class="demo">
         <h3>Border</h3>
 
@@ -260,6 +275,8 @@ $ gulp serve</code>
         </ul>
 
       </div>
+
+
 
       <div class="demo">
         <h3>Spaced markers</h3>
@@ -522,6 +539,7 @@ $ gulp serve</code>
       </div>
 
 
+
       <div class="demo">
         <h3>Right aligned text</h3>
 
@@ -568,6 +586,7 @@ $ gulp serve</code>
         </ul>
 
       </div>
+
 
 
       <div class="demo">
@@ -628,6 +647,7 @@ $ gulp serve</code>
       </div>
 
 
+
       <div class="demo">
         <h3>Text above markers</h3>
 
@@ -676,6 +696,7 @@ $ gulp serve</code>
       </div>
 
 
+
       <div class="demo">
         <h3>Text beside markers</h3>
 
@@ -719,6 +740,7 @@ $ gulp serve</code>
       </div>
 
 
+
       <div class="demo">
         <h3>Square markers</h3>
 
@@ -760,6 +782,54 @@ $ gulp serve</code>
         </ul>
 
       </div>
+
+
+
+      <div class="demo">
+        <h3>Small screen optimised &lt;400px</h3>
+
+        <div class="progress-tracker-mobile">
+        <ul class="progress-tracker progress-tracker--text">
+          <li class="progress-step is-complete">
+            <span class="progress-marker"></span>
+            <span class="progress-text">
+              <h4 class="progress-title">Step 1</h4>
+            </span>
+          </li>
+
+          <li class="progress-step is-complete">
+            <span class="progress-marker"></span>
+            <span class="progress-text">
+              <h4 class="progress-title">Step 2</h4>
+            </span>
+          </li>
+
+          <li class="progress-step is-active">
+            <span class="progress-marker"></span>
+            <span class="progress-text">
+              <h4 class="progress-title">Step 3</h4>
+            </span>
+          </li>
+
+          <li class="progress-step">
+            <span class="progress-marker"></span>
+            <span class="progress-text">
+              <h4 class="progress-title">Step 4</h4>
+            </span>
+          </li>
+
+          <li class="progress-step">
+            <span class="progress-marker"></span>
+            <span class="progress-text">
+              <h4 class="progress-title">Step 5</h4>
+            </span>
+          </li>
+        </ul>
+        </div>
+
+      </div>
+
+
 
       <div class="demo">
         <h2>Animations <small> - Click on a step to see the effect</small></h2>
@@ -977,6 +1047,7 @@ $ gulp serve</code>
       </div>
 
 
+
       <div class="demo">
         <h3>Vertical layout</h3>
 
@@ -1021,6 +1092,8 @@ $ gulp serve</code>
       </div>
 
     </div>
+
+
 
     <footer class="footer">
       <div class="container">

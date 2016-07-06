@@ -238,6 +238,10 @@ $transition-duration:       0.3s !default;
     white-space: nowrap;
   }
 
+    .progress-title {
+      margin: 0;
+    }
+
 }
 
 
@@ -333,6 +337,18 @@ $transition-duration:       0.3s !default;
       border-radius: 0;
     }
 
+}
+
+
+// Overflow on small screens
+@media (max-width: 399px) {
+  .progress-tracker-mobile {
+    overflow-x: auto;
+
+    .progress-tracker {
+      min-width: 200%;
+    }
+  }
 }
 
 

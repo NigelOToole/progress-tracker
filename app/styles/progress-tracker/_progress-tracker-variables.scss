@@ -1,0 +1,34 @@
+// ----- Variables -----
+
+// Colours
+$progress-color-dark:       #1976D2 !default;
+$progress-color:            #2196F3 !default;
+$progress-color-light:      #56ADF5 !default;
+$progress-color-grey-light: #b6b6b6 !default;
+$progress-color-grey:       #868686 !default;
+$progress-color-grey-dark:  #333333 !default;
+
+// Sizing
+$progress-tracker-padding:  5px !default;
+
+$marker-size:               28px !default;
+$marker-size-half:          ($marker-size / 2);
+$marker-size-third:         ($marker-size / 3);
+$marker-size-quarter:       ($marker-size / 4);
+$marker-spacing:            10px !default;
+
+$path-height:               4px !default;
+$path-position:             $marker-size-half - ($path-height / 2);
+
+$text-padding:              $marker-size-half !default;
+$text-padding-X:            $marker-size-third !default;
+$text-padding-Y:            $marker-size-half !default;
+$text-padding--vertical:    $marker-size + $marker-size-half !default;
+
+// Only needed for short text version, the word size should be the width of the widest word without padding.
+$word-size:                     54px !default;
+$progress-tracker-word-padding: ($word-size + $text-padding-X + $marker-size-half) / 2;
+
+// Transitions
+$transition-duration:       0.3s !default;
+$ripple-color:              rgba(0, 0, 0, 0.3) !default;

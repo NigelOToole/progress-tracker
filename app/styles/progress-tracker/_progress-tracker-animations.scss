@@ -1,8 +1,6 @@
 // ----- Progress Tracker Animations -----
-
 // These are optional animations that can be easily added to the progress tracker to add visual interest.
 
-$ripple-color: rgba(0, 0, 0, 0.3) !default;
 
 // Ripple elements mixin
 @mixin ripple-element() {
@@ -31,6 +29,7 @@ $ripple-color: rgba(0, 0, 0, 0.3) !default;
   transform: translate(-50%, -50%) scale(0);
   transition-duration: 0s;
 }
+
 
 
 // ----- Ripple effect when marker or step is clicked, similar to Matrial Design - https://getmdl.io/components/#buttons-section -----

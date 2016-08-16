@@ -86,9 +86,6 @@ strong {
   background-color: #fff;
   border-radius: 4px;
   transition: background-color .3s, color .3s;
-&::before {
-  @include ripple-element();
-}
 
   &:hover, &:active {
     background-color: #f3f3f3;

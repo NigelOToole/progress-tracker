@@ -29,6 +29,6 @@ $text-padding--vertical:    $marker-size + $marker-size-half !default;
 $word-size:                     54px !default;
 $progress-tracker-word-padding: ($word-size + $text-padding-X + $marker-size-half) / 2;
 
-// Transitions
-$transition-duration:       0.3s !default;
+// Animations/Transitions
+$animation-duration:        0.3s !default;
 $ripple-color:              rgba(0, 0, 0, 0.3) !default;

@@ -36,7 +36,7 @@
       right: - $marker-size-half;
       width: 100%;
       height: $path-height;
-      transition: background-color $transition-duration;
+      transition: background-color $animation-duration;
     }
 
     // Active state
@@ -67,7 +67,7 @@
       border: 2px solid transparent;
       border-radius: 50%;
       transition: background-color, border-color;
-      transition-duration: $transition-duration;
+      transition-duration: $animation-duration;
     }
 
 

@@ -1,6 +1,5 @@
 // ----- Progress Tracker Animations -----
-// These are optional animations that can be easily added to the progress tracker to add visual interest.
-
+// Animation show after click using pure CSS based on a technique - https://ghinda.net/article/css-ripple-material-design/ and the Material design ripple - https://getmdl.io/components/#buttons-section
 
 // Ripple elements mixin
 @mixin ripple-element() {
@@ -14,92 +13,96 @@
   z-index: 30;
   background: $ripple-color;
   border-radius: 50%;
-
-  // Animation end state
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(1);
-  transition: transform, opacity;
-  transition-duration: $transition-duration;
-  transition-timing-function: ease-out;
+  transform: translate(-50%, -50%) scale(0); // Initial state, should hide the effect when not animating
+  visibility: hidden; // Hides element so it doesnt animate on page load
 }
 
 @mixin ripple-element-active() {
-  // Animation start state
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(0);
-  transition-duration: 0s;
+  visibility: visible; // Shows element when it is focused
+}
+
+// Animation Keyframes
+@keyframes scale-up {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 
 
-// ----- Ripple effect when marker or step is clicked, similar to Matrial Design - https://getmdl.io/components/#buttons-section -----
-// Animation fires after a user has clicked a marker or a surround <a> tag
+// ----- Ripple effect when marker is clicked -----
+.anim-ripple, .anim-ripple-large, .anim-ripple-splash {
 
-.anim-ripple {
+  .progress-marker::before {
+    @include ripple-element();
+  }
 
-    .progress-marker {
+  :not(:active) .progress-marker::before {
+    animation: scale-up $animation-duration ease-out;
+  }
 
-      &::before {
-        @include ripple-element();
-      }
-
-    }
-
-      .progress-marker:active::before, .progress-step > a:active .progress-marker::before {
-        @include ripple-element-active();
-      }
+  :focus .progress-marker::before {
+    @include ripple-element-active();
+  }
 
 }
 
-
-
-// ----- Large ripple effect which expands outside of the bounds of marker -----
+// ----- Large ripple which expands outside of the bounds of marker -----
 .anim-ripple-large {
 
-    .progress-marker {
-
-      &::before {
-        @include ripple-element();
-        width: 200%;
-        height: 200%;
-      }
-
-    }
-
-      .progress-marker:active::before, .progress-step > a:active .progress-marker::before {
-        @include ripple-element-active();
-      }
+  .progress-marker::before {
+    width: 200%;
+    height: 200%;
+  }
 
 }
 
+// ----- Large ripple with splash -----
+.anim-ripple-splash {
 
+  .progress-marker::before {
+    width: 200%;
+    height: 200%;
+    box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.35);
+  }
 
-// ----- Double ripple effect, more similar to an actual water ripple -----
+}
+
+// ----- Double ripple effect, similar to an actual water ripple -----
 .anim-ripple-double {
 
-    .progress-marker {
-
-      &::before, &::after {
-        @include ripple-element();
-        background: none;
-        border: 3px solid $ripple-color;
-      }
-
-      &::after {
-        transition-delay: ($transition-duration / 2);
-      }
-
+  .progress-marker {
+    &::before, &::after {
+      @include ripple-element();
+      background: none;
+      border: 3px solid $ripple-color;
     }
+  }
 
-      .progress-marker:active::before, .progress-marker:active::after, .progress-step > a:active .progress-marker::before, .progress-step > a:active .progress-marker::after {
-        @include ripple-element-active();
-      }
+  :not(:active) .progress-marker {
+    &::before, &::after {
+      animation: scale-up $animation-duration ease-out 0s;
+    }
+    &::after {
+      animation-delay: $animation-duration/2;
+    }
+  }
+
+  :focus .progress-marker {
+    &::before, &::after {
+      @include ripple-element-active();
+    }
+  }
 
 }
 
-
-
-// ----- Animate filling up the path between markers when it becomes active.
+// ----- Fill up the path between markers when it becomes active -----
 .anim-path {
 
   .progress-step {
@@ -108,7 +111,7 @@
       background-image: linear-gradient(to right, $progress-color-grey-light 50%, $progress-color-grey 50%);
       background-size: 200% 100%;
       background-position: 0% 100%;
-      transition: background-position $transition-duration ease-out;
+      transition: background-position $animation-duration ease-out;
     }
 
     &.is-complete::after {

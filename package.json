@@ -1,7 +1,7 @@
 {
   "name": "progress-tracker",
   "description": "A flexible SASS component to illustrate the steps in a multi step process e.g. a multi step form, a timeline or a quiz.",
-  "version": "1.2.0",
+  "version": "1.4.0",
   "main": "app/styles/progress-tracker.scss",
   "dependencies": {},
   "scripts": {

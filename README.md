@@ -5,20 +5,20 @@
 A progress tracker written in SASS with flexbox to be flexible and responsive out of the box. This can be used to illustrate a multi stage process e.g. form, quiz or a timeline.
 
 
-##Installation
+## Installation
 
-###npm
+### npm
 ```javascript
 $ npm install progress-tracker --save
 ```
 
-###bower
+### bower
 ```javascript
 $ bower install progress-tracker --save
 ```
 
 
-##Usage
+## Usage
 Once you have downloaded the code, run the commands below to view the demo.
 
 ```javascript

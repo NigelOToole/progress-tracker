@@ -54,6 +54,7 @@
   .progress-marker {
     &::after {
       width: calc(100% - #{$marker-size + ($marker-spacing * 2)});
+      margin-left: ($marker-size-half + $marker-spacing);
       margin-right: ($marker-size-half + $marker-spacing);
     }
   }

@@ -53,6 +53,30 @@
 
 }
 
+.anim-ripple, .anim-ripple-large, .anim-ripple-splash, .anim-ripple-double {
+
+  &.progress-tracker--center, .progress-tracker--center & {
+
+    .progress-link {
+      &::before, &::after {
+        left: 50%;
+      }
+    } 
+  }
+
+  &.progress-tracker--right, .progress-tracker--right & {
+
+    .progress-link {
+      &::before, &::after {
+        left: calc(100% - #{$marker-size-half});
+      }
+    }
+
+  }
+
+}
+
+
 // ----- Large ripple with splash -----
 .anim-ripple-splash {
 

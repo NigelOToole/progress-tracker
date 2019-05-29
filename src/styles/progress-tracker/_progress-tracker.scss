@@ -1,0 +1,126 @@
+// ----- Elements -----
+
+// Container element
+.progress-tracker {
+  display: flex;
+  margin: 60px auto;
+  padding: 0;
+  list-style: none;
+}
+
+// Step container
+  .progress-step {
+    flex: 1 1 0%;
+    margin: 0;
+    padding: 0;
+    min-width: $marker-size; // For a flexbox bug in firefox that wont allow the text overflow on the text
+
+    // Stops the last step growing
+    &:last-child {
+      flex-grow: 0;
+
+      .progress-marker::after {
+        display: none;
+      }
+    }
+  }
+
+// Link wrapper for the marker and text
+    .progress-link {
+      display: block;
+      position: relative;
+    }
+
+
+// Progress marker
+    .progress-marker {
+      display: block;
+      position: relative;
+
+      // Marker
+      &::before {
+        content: attr(data-text);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 20;
+        width: $marker-size;
+        height: $marker-size;
+        padding-bottom: 2px; // To align text within the marker
+        border-radius: 50%;
+        transition: background-color, border-color;
+        transition-duration: $animation-duration;
+      }
+
+      // Path between markers
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: -10;
+        top: $path-position;
+        right: -#{$marker-size-half};
+        width: 100%;
+        height: $path-height;
+        transition: background-color $animation-duration, background-position $animation-duration;
+      }
+      
+    }
+
+
+// Progress text
+    .progress-text {
+      display: block;
+      padding: $text-padding-Y $text-padding-X;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+      .progress-title {
+        margin-top: 0;
+      }
+
+
+// ----- States -----
+
+// Step state mixin - The first argument is required and the rest are optional, if you pass in null the value will not be changed.
+@mixin progress-state($color-marker, $color-path: null, $color-text: null, $color-marker-text: null, $color-marker-border: null) {
+  .progress-marker {
+    color: $color-marker-text;
+
+    &::before {
+      background-color: $color-marker;
+      border-color: $color-marker-border;
+    }
+
+    &::after {
+      background-color: $color-path;
+    }
+  }
+
+  .progress-text {
+    color: $color-text;
+  }
+}
+
+  .progress-step {
+
+    // Inactive - Default state
+    @include progress-state($color-marker, $color-path: $color-path, $color-text: $color-text, $color-marker-text: $color-marker-text);
+
+    // Active state
+    &.is-active {
+      @include progress-state($color-marker-active);
+    }
+
+    // Complete state
+    &.is-complete {
+      @include progress-state($color-marker-complete, $color-path: $color-path-complete);
+    }
+
+    // Hover state
+    &:hover {
+      @include progress-state($color-marker-hover);
+    }
+  }

@@ -4,13 +4,15 @@
 
 var progressTrackerDemo = (function() {
 
-	var animPathLinks = document.querySelectorAll('#anim-path li');
+	var animPathLinks = document.querySelectorAll('.anim--path .progress-step');
 	var animPathLinksLength = animPathLinks.length;
 
-	function initAnimPathDemo() {
+	function init() {
 
-		for (var i = 0; i < animPathLinksLength; i++) {
-			_handleClick(animPathLinks[i], i);
+		if (animPathLinksLength > 0) {
+			for (var i = 0; i < animPathLinksLength; i++) {
+				_handleClick(animPathLinks[i], i);
+			}
 		}
 
 	}
@@ -66,9 +68,9 @@ var progressTrackerDemo = (function() {
 	}
 
 	return {
-		initAnimPathDemo: initAnimPathDemo
+		init: init
 	};
 
 })();
 
-progressTrackerDemo.initAnimPathDemo();
+progressTrackerDemo.init();

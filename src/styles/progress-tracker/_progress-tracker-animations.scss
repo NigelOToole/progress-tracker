@@ -5,16 +5,16 @@
 @mixin ripple-element() {
   content: "";
   display: block;
-  width: 100%;
-  height: 100%;
+  width: $marker-size;
+  height: $marker-size;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: $marker-size-half;
+  left: $marker-size-half;
   z-index: 30;
   background: $ripple-color;
   border-radius: 50%;
-  transform: translate(-50%, -50%) scale(0); // Initial state, should hide the effect when not animating
-  visibility: hidden; // Hides element so it doesnt animate on page load
+  transform: translate(-50%, -50%) scale(0); // Initial state, hides the effect when not animating
+  visibility: hidden; // Hides element so it does not animate on page load
 }
 
 @mixin ripple-element-active() {
@@ -39,26 +39,16 @@
 // ----- Ripple effect when marker is clicked -----
 .anim-ripple, .anim-ripple-large, .anim-ripple-splash {
 
-  .progress-marker::before {
+  .progress-link::before {
     @include ripple-element();
   }
 
-  :not(:active) .progress-marker::before {
+  .progress-link:not(:active)::before {
     animation: scale-up $animation-duration ease-out;
   }
 
-  :focus .progress-marker::before {
+  .progress-link:focus::before {
     @include ripple-element-active();
-  }
-
-}
-
-// ----- Large ripple which expands outside of the bounds of marker -----
-.anim-ripple-large {
-
-  .progress-marker::before {
-    width: 200%;
-    height: 200%;
   }
 
 }
@@ -66,9 +56,9 @@
 // ----- Large ripple with splash -----
 .anim-ripple-splash {
 
-  .progress-marker::before {
-    width: 200%;
-    height: 200%;
+  .progress-link::before {
+    width: $marker-size*2;
+    height: $marker-size*2;
     box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.35);
   }
 
@@ -77,7 +67,7 @@
 // ----- Double ripple effect, similar to an actual water ripple -----
 .anim-ripple-double {
 
-  .progress-marker {
+  .progress-link {
     &::before, &::after {
       @include ripple-element();
       background: none;
@@ -85,16 +75,17 @@
     }
   }
 
-  :not(:active) .progress-marker {
+  .progress-link:not(:active)  {
     &::before, &::after {
       animation: scale-up $animation-duration ease-out 0s;
     }
+    
     &::after {
       animation-delay: $animation-duration/2;
     }
   }
 
-  :focus .progress-marker {
+  .progress-link:focus  {
     &::before, &::after {
       @include ripple-element-active();
     }
@@ -102,22 +93,39 @@
 
 }
 
-// ----- Fill up the path between markers when it becomes active -----
-.anim-path {
+.anim--large {
+  .progress-link {
+    &::before, &::after {
+      width: $marker-size*2;
+      height: $marker-size*2;
+    }
+  }
+}
 
-  .progress-step {
+
+// ----- Fill up the path between markers when it becomes active -----
+.anim--path {
+
+  .progress-marker {
 
     &::after {
-      background-image: linear-gradient(to right, $progress-color-grey-light 50%, $progress-color-grey 50%);
+      background-image: linear-gradient(to right, $color-path 50%, $color-path-complete 50%);
       background-size: 200% 100%;
       background-position: 0% 100%;
       transition: background-position $animation-duration ease-out;
     }
 
-    &.is-complete::after {
+    .progress-step.is-complete &::after {
       background-position: -100% 100%;
     }
 
   }
+
+
+
+    .progress-step.is-complete .progress-marker::after {
+      background-position: -100% 100%;
+    }
+
 
 }

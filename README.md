@@ -1,53 +1,60 @@
 # SASS Progress Tracker
+### A HTML component to illustrate the steps in a multi step process e.g. a multi step form, a timeline or a quiz.
 
-[Live demo](http://nigelotoole.github.io/progress-tracker/)
+### [View demo](http://nigelotoole.github.io/progress-tracker/)
 
-A progress tracker written in SASS with flexbox to be flexible and responsive out of the box. This can be used to illustrate a multi stage process e.g. form, quiz or a timeline.
 
 
 ## Installation
 
-### npm
 ```javascript
 $ npm install progress-tracker --save
 ```
 
-### bower
-```javascript
-$ bower install progress-tracker --save
+### Import
+
+After installation you can import it into your SASS files with the statement below.
+
+```scss
+@import "node_modules/progress-tracker/src/styles/progress-tracker.scss";
 ```
 
+The JS that is part of this site is just for demonstration purposes, add your own JS as needed to toggle the classes for the step states.
 
-## Usage
-Once you have downloaded the code, run the commands below to view the demo.
+### Markup
 
-```javascript
-$ npm install
-$ gulp serve
-```
+Follow the HTML code example below for basic usage; each demo sets the first two steps as complete, the third step as active and the last two steps as inactive.
 
-You can also just import **progress-tracker.scss** into your own project and modify as needed. Optional files are **progress-tracker-animations.scss** to add animations and **progress-tracker-theme.scss** for quicker theming.
-
-Follow the code example below for basic usage, each demo sets the first two steps as complete, the third step as active and the last two steps as inactive. For additional styles add a modifier classes to the ul and add additional markup as needed in the examples.
+For additional styles add modifier classes and additional markup as needed in the examples below. You can add multiple modifier classes to achieve additional styles that those shown below.
 
 ```html
 <ul class="progress-tracker">
   <li class="progress-step is-complete">
-    <span class="progress-marker"></span>
+    <div class="progress-marker"></div>
   </li>
   <li class="progress-step is-complete">
-    <span class="progress-marker"></span>
+    <div class="progress-marker"></div>
   </li>
   <li class="progress-step is-active">
-    <span class="progress-marker"></span>
+    <div class="progress-marker"></div>
   </li>
   <li class="progress-step">
-    <span class="progress-marker"></span>
+    <div class="progress-marker"></div>
   </li>
   <li class="progress-step">
-    <span class="progress-marker"></span>
+    <div class="progress-marker"></div>
   </li>
 </ul>
+```
+
+
+### Demo site
+
+Clone or download from Github.
+
+```javascript
+    $ npm install
+    $ gulp serve
 ```
 
 

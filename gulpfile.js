@@ -73,7 +73,7 @@ exports.serve = serve;
 
 // ----- Build tasks ------
 function compress() {
-  return src([`${paths.src}/*.html`, `${paths.tmp}/*/**/*.{html,css,js}`, `${paths.src}/**/*.js`])
+  return src([`${paths.tmp}/*/**/*.{html,css,js}`, `${paths.src}/*.html`, `${paths.src}/**/*.js`])
     .pipe(dest(`${paths.dest}`));
 }
 

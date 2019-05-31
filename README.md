@@ -13,7 +13,7 @@ $ npm install progress-tracker --save
 
 ### Import
 
-After installation you can import it into your SASS files with the statement below.
+After installation you can import it into your Sass files with the statement below.
 
 ```scss
 @import "node_modules/progress-tracker/src/styles/progress-tracker.scss";

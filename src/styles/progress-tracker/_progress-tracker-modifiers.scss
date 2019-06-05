@@ -137,6 +137,7 @@
 
 // Text inline with markers
 .progress-tracker--text-inline {
+  overflow: hidden;
 
   .progress-step, .progress-marker {
     display: flex;
@@ -208,6 +209,10 @@
   .progress-step {
     display: flex;
     flex: 1 1 auto;
+  }
+
+  &.progress-tracker--right .progress-step {
+    flex-direction: row-reverse;
   }
 
     .progress-marker {

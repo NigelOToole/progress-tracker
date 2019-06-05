@@ -26,7 +26,7 @@ a {
   }
 }
 
-// Type
+
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
   font-weight: 300;
@@ -37,7 +37,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2, h3 {
-  margin: 0 0 1rem 0;
+  margin: 0 0 1.5rem 0;
 }
 
 h4, h5, h6 {
@@ -79,7 +79,7 @@ pre {
 
 .table {
   width: 100%;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1.5rem 0;
   border-collapse: collapse;
 
   th, td {
@@ -144,12 +144,12 @@ pre {
 
   .container {
     display: flex;
-
-    @media (max-width: 767px) {
+    
+    @media (max-width: 575px) {
       flex-flow: column;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 576px) {
       align-items: center;
     }
   }
@@ -174,7 +174,7 @@ pre {
       }
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 576px) {
       margin-left: auto;
     }
   }

@@ -39,16 +39,14 @@
     "del": "^3.0.0",
     "gulp": "^4.0.0",
     "gulp-cli": "^2.0.1",
-    "gulp-if": "^2.0.2",
     "gulp-load-plugins": "^1.6.0",
     "gulp-plumber": "^1.0.1",
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.2.0",
-    "yargs": "^12.0.5"
+    "gulp-sourcemaps": "^2.2.0"
   },
   "scripts": {
     "start": "gulp serve",
-    "build": "cross-env NODE_ENV=production gulp"
+    "build": "gulp"
   }
 }

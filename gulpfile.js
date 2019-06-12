@@ -5,14 +5,7 @@ const $ = gulpLoadPlugins();
 const browserSync = require('browser-sync');
 const server = browserSync.create();
 const del = require('del');
-const { argv } = require('yargs');
 const autoprefixer = require('autoprefixer');
-
-const port = argv.port || 9000;
-
-const isProd = process.env.NODE_ENV === 'production';
-const isTest = process.env.NODE_ENV === 'test';
-const isDev = !isProd && !isTest;
 
 const paths = {
   src: 'src',
@@ -25,7 +18,7 @@ const paths = {
 function styles() {
   return src(`${paths.src}/styles/*.scss`)
     .pipe($.plumber())
-    .pipe($.if(!isProd, $.sourcemaps.init()))
+    .pipe($.sourcemaps.init())
     .pipe($.sass.sync({
       outputStyle: 'expanded',
       precision: 10,
@@ -35,7 +28,7 @@ function styles() {
     .pipe($.postcss([
       autoprefixer()
     ]))
-    .pipe($.if(!isProd, $.sourcemaps.write()))
+    .pipe($.sourcemaps.write())
     .pipe(dest(`${paths.tmp}/styles`))
     .pipe(server.reload({stream: true}));
 };
@@ -47,7 +40,7 @@ exports.styles = styles;
 function startAppServer() {
   server.init({
     notify: false,
-    port,
+    port: 9000,
     server: {
       baseDir: [`${paths.tmp}`, `${paths.src}`],
       routes: {
@@ -59,9 +52,7 @@ function startAppServer() {
     }
   });
 
-  watch([
-    `${paths.src}/*.html`
-  ]).on('change', server.reload);
+  watch([`${paths.src}/*.html`]).on('change', server.reload);
 
   watch(`${paths.src}/**/*.scss`, styles);
 }
@@ -73,7 +64,7 @@ exports.serve = serve;
 
 // ----- Build tasks ------
 function compress() {
-  return src([`${paths.tmp}/*/**/*.{html,css,js}`, `${paths.src}/*.html`, `${paths.src}/**/*.js`])
+  return src([`${paths.tmp}/*/**/*.{html,css,js}`, `${paths.src}/**/*.{html,js,jpg,gif,png}`])
     .pipe(dest(`${paths.dest}`));
 }
 

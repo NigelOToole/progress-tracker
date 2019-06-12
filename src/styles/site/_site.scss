@@ -98,6 +98,12 @@ pre {
 }
 
 
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+
 
 // ----- Layout -----
 .fullwidth {
@@ -171,7 +177,7 @@ pre {
     }
   }
 
-  .header--links {
+  .header-links {
 
     .btn-demo {
       margin: .5rem 0;

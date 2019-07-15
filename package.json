@@ -1,7 +1,7 @@
 {
   "name": "progress-tracker",
   "description": "A HTML component to illustrate the steps in a multi step process e.g. a multi step form, a timeline or a quiz.",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "main": "src/styles/progress-tracker.scss",
   "repository": {
     "type": "git",

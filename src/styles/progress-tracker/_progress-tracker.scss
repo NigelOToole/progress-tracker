@@ -99,6 +99,23 @@
       @include progress-state($color-marker-complete, $color-path: $color-path-complete);
     }
 
+    // In progress state
+    &.is-progress {
+      @include progress-state($color-marker-complete, $color-path: $color-path-complete);
+
+      @for $i from 1 through 99 {
+        .progress-#{$i} {
+          &:after {
+            background-image: linear-gradient(
+              to right,
+              $color-path-complete round(percentage($i / 100)),
+              $color-path round(percentage($i / 100))
+            );
+          }
+        }
+      }
+    }
+
     // Hover state
     &:hover {
       @include progress-state($color-marker-hover);

@@ -1,26 +1,6 @@
 // ----- Progress Tracker Animations -----
 // Animation show after click using pure CSS based on a technique - https://ghinda.net/article/css-ripple-material-design/ and the Material design ripple - https://getmdl.io/components/#buttons-section
 
-// Ripple elements mixin
-@mixin ripple-element() {
-  content: "";
-  display: block;
-  width: $marker-size;
-  height: $marker-size;
-  position: absolute;
-  top: $marker-size-half;
-  left: $marker-size-half;
-  z-index: 30;
-  background: $ripple-color;
-  border-radius: 50%;
-  transform: translate(-50%, -50%) scale(0); // Initial state, hides the effect when not animating
-  visibility: hidden; // Hides element so it does not animate on page load
-}
-
-@mixin ripple-element-active() {
-  visibility: visible; // Shows element when it is focused
-}
-
 // Animation Keyframes
 @keyframes scale-up {
   from {

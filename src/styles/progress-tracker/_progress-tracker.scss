@@ -84,26 +84,6 @@
 
 // ----- States -----
 
-// Step state mixin - The first argument is required and the rest are optional, if you pass in null the value will not be changed.
-@mixin progress-state($color-marker, $color-path: null, $color-text: null, $color-marker-text: null, $color-marker-border: null) {
-  .progress-marker {
-    color: $color-marker-text;
-
-    &::before {
-      background-color: $color-marker;
-      border-color: $color-marker-border;
-    }
-
-    &::after {
-      background-color: $color-path;
-    }
-  }
-
-  .progress-text {
-    color: $color-text;
-  }
-}
-
   .progress-step {
 
     // Inactive - Default state

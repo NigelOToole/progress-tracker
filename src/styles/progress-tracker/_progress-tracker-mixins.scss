@@ -1,0 +1,39 @@
+// Ripple elements mixin
+@mixin ripple-element() {
+  content: "";
+  display: block;
+  width: $marker-size;
+  height: $marker-size;
+  position: absolute;
+  top: $marker-size-half;
+  left: $marker-size-half;
+  z-index: 30;
+  background: $ripple-color;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0); // Initial state, hides the effect when not animating
+  visibility: hidden; // Hides element so it does not animate on page load
+}
+
+@mixin ripple-element-active() {
+  visibility: visible; // Shows element when it is focused
+}
+
+// Step state mixin - The first argument is required and the rest are optional, if you pass in null the value will not be changed.
+@mixin progress-state($color-marker, $color-path: null, $color-text: null, $color-marker-text: null, $color-marker-border: null) {
+  .progress-marker {
+    color: $color-marker-text;
+
+    &::before {
+      background-color: $color-marker;
+      border-color: $color-marker-border;
+    }
+
+    &::after {
+      background-color: $color-path;
+    }
+  }
+
+  .progress-text {
+    color: $color-text;
+  }
+}

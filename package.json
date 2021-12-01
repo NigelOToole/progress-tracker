@@ -1,7 +1,7 @@
 {
   "name": "progress-tracker",
   "description": "A HTML component to illustrate the steps in a multi step process e.g. a multi step form, a timeline or a quiz.",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "main": "src/styles/progress-tracker.scss",
   "repository": {
     "type": "git",
@@ -33,19 +33,20 @@
     "Firefox ESR"
   ],
   "devDependencies": {
-    "autoprefixer": "^9.4.4",
     "browser-sync": "^2.26.5",
+    "cross-env": "^7.0.3",
     "del": "^3.0.0",
     "gulp": "^4.0.0",
     "gulp-cli": "^2.0.1",
     "gulp-load-plugins": "^1.6.0",
     "gulp-plumber": "^1.0.1",
-    "gulp-postcss": "^8.0.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.2.0"
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^2.2.0",
+    "sass": "^1.42.1"
   },
   "scripts": {
-    "start": "gulp serve",
-    "build": "gulp"
+    "dev": "gulp serve",
+    "build": "cross-env NODE_ENV=production gulp build",
+    "publishNpm": "cross-env NODE_ENV=production gulp compile && npm publish"
   }
 }

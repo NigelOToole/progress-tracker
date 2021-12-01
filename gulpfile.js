@@ -5,7 +5,9 @@ const $ = gulpLoadPlugins();
 const browserSync = require('browser-sync');
 const server = browserSync.create();
 const del = require('del');
-const autoprefixer = require('autoprefixer');
+const sass = require('gulp-sass')(require('sass'));
+
+const isProd = process.env.NODE_ENV === 'production';
 
 const paths = {
   src: 'src',
@@ -16,20 +18,19 @@ const paths = {
 
 // ----- Tasks ------
 function styles() {
-  return src(`${paths.src}/styles/*.scss`)
+  return src(`${paths.src}/styles/*.scss`, {
+      sourcemaps: !isProd,
+    })
     .pipe($.plumber())
-    .pipe($.sourcemaps.init())
-    .pipe($.sass.sync({
+    .pipe(sass.sync({
       outputStyle: 'expanded',
       precision: 10,
       includePaths: ['.']
     })
-    .on('error', $.sass.logError))
-    .pipe($.postcss([
-      autoprefixer()
-    ]))
-    .pipe($.sourcemaps.write())
-    .pipe(dest(`${paths.tmp}/styles`))
+    .on('error', sass.logError))
+    .pipe(dest(`${paths.src}/styles`, {
+      sourcemaps: !isProd,
+    }))
     .pipe(server.reload({stream: true}));
 };
 
@@ -57,24 +58,27 @@ function startAppServer() {
   watch(`${paths.src}/**/*.scss`, styles);
 }
 
+const compile = series(clean, styles);
+exports.compile = compile;
 
-let serve = series(clean, styles, startAppServer);
+const serve = series(compile, startAppServer);
 exports.serve = serve;
 
 
 // ----- Build tasks ------
-function compress() {
-  return src([`${paths.tmp}/*/**/*.{html,css,js}`, `${paths.src}/**/*.{html,js,jpg,gif,png}`])
+function moveFiles() {
+  return src([`${paths.tmp}/**/*.{html,css,js}`, `${paths.src}/**/*.{html,css,js,jpg,gif,png,webp,mp4,webm}`])
     .pipe(dest(`${paths.dest}`));
-}
+};
+exports.moveFiles = moveFiles;
+
 
 function clean() {
   return del([`${paths.tmp}`, `${paths.dest}`])
 }
-
 exports.clean = clean;
 
-const build = series(clean, styles, compress);
 
+const build = series(compile, moveFiles);
 exports.build = build;
 exports.default = build;

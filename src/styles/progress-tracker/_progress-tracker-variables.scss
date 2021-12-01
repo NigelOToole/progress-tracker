@@ -1,4 +1,6 @@
 // Colours
+@use "sass:math";
+
 $color-marker: #b6b6b6 !default;
 $color-marker-active: #2196F3 !default;
 $color-marker-complete: #1976D2 !default;
@@ -13,13 +15,13 @@ $color-marker-text: #fff !default;
 
 // Sizing
 $marker-size: 24px !default;
-$marker-size-half: ceil($marker-size / 2);
-$marker-size-third: ceil($marker-size / 3);
-$marker-size-quarter: ceil($marker-size / 4);
+$marker-size-half: ceil($marker-size * 0.5);
+$marker-size-third: ceil(math.div($marker-size, 3));
+$marker-size-quarter: ceil($marker-size * 0.25);
 $marker-spacing: 8px !default;
 
 $path-height: 4px !default;
-$path-position: $marker-size-half - ($path-height / 2);
+$path-position: $marker-size-half - ($path-height * 0.5);
 
 $text-padding: 8px !default;
 $text-padding-X: $marker-size-third !default;
@@ -31,7 +33,7 @@ $progress-tracker-padding: 4px !default;
 
 // Dots connecting text to markers
 $dot-size: 12px;
-$dot-size-half: $dot-size/2;
+$dot-size-half: $dot-size*0.5;
 $dot-spacing: 6px;
 $dot-levels: 12;
 

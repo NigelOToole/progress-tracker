@@ -41,6 +41,11 @@
   transition: background-color, border-color;
   transition-duration: 0.3s;
 }
+@supports (x: attr(x type(*))) {
+  .progress-marker::before {
+    content: attr(data-text string, "");
+  }
+}
 .progress-marker::after {
   content: "";
   display: block;

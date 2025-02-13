@@ -51,6 +51,10 @@
         border-radius: 50%;
         transition: background-color, border-color;
         transition-duration: $animation-duration;
+
+        @supports (x: attr(x type(*))) {
+          content: attr(data-text string, "");
+        }
       }
 
       // Path between markers

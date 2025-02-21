@@ -33,7 +33,7 @@
     "Firefox ESR"
   ],
   "devDependencies": {
-    "browser-sync": "^2.26.5",
+    "browser-sync": "^3.0.3",
     "cross-env": "^7.0.3",
     "del": "^3.0.0",
     "gulp": "^4.0.0",

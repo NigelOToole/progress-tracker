@@ -1,0 +1,60 @@
+@import "reset.css";
+@import "variables.css";
+@import "base.css";
+@import "layout.css";
+
+@import "components.css";
+@import "demo.css";
+
+
+/* Social image - 1200x630 */
+/* body {
+  scale: 1.5;
+  transform-origin: top center;
+}
+
+.header {
+  display: flex;
+  border: none;
+
+  .container {
+    width: 100%;
+  }
+}
+
+.header-nav {
+  display: none;
+}
+
+.intro .container {
+  display: flex;
+  height: 340px;
+
+  > *:not(.page-intro) {
+    display: none;
+  }
+}
+
+
+.page-heading {
+  font-size: 3rem;
+}
+
+.page-intro-img {
+  width: 160px;
+} */
+
+
+/* Portfolio Image */
+body {
+  scale: 1.565;
+  transform-origin: top center;
+}
+
+.header {
+  display: none;
+}
+
+.progress-text p {
+  display: none !important;
+}

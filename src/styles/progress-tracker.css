@@ -1,4 +1,303 @@
+  /* --color-50: #f5f8ff;
+  --color-100: #c5d9ff;
+  --color-200: #99bdff;
+  --color-300: #6d9fff;
+  --color-400: #3f7eff;
+  --color-500: #0157ff;
+  --color-600: #0048d7;
+  --color-700: #0034a3;
+  --color-800: #002170;
+  --color-900: #001145; */
+
 .progress-tracker {
+  --marker-size: 32px;
+  --marker-size-block: 32px;
+  --marker-size-inline: var(--marker-size-block);
+  --marker-size-half: calc(var(--marker-size-block) * 0.5);
+  --marker-spacing: -1px; /* Fix for rounding errors */
+  
+  --marker-bg: #999;
+  --marker-bg-active: #0034a3;
+  --marker-bg-complete: #0157ff;
+  --marker-bg-hover: #3f7eff;
+  
+  --marker-color: #fff;
+
+
+  --path-size-block: 4px;
+  --path-size-inline: calc(100% - (var(--marker-size-inline) + (var(--marker-spacing) * 2)));
+  --path-position-block: calc(var(--marker-size-half) - (var(--path-size-block) * 0.5));
+  --path-position-inline: calc(var(--marker-size-inline) + var(--marker-spacing));
+
+  --path-bg: #999;
+  --path-bg-active: #999;
+  --path-bg-complete: #0157ff;
+
+
+  --text-color: #0034a3;
+  --text-color-hover: #0157ff;
+
+  --animation-duration: 0.3s;
+
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.progress-step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0%;
+    margin: 0;
+    padding: 0;
+  }
+
+.progress-step:last-child:not(:has(.progress-text)) {
+      flex-grow: 0;
+    }
+
+/* Marker shape */
+
+.progress-step::before {
+      --bg: var(--marker-bg);
+      --color: var(--marker-color);
+
+      content: "";
+      position: relative;
+      z-index: 20;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: var(--marker-size-inline);
+      height: var(--marker-size-block);
+      border-radius: 50%;
+      color: var(--color);
+      background-color: var(--bg);
+
+      transition: background-color, border-color;
+      transition-duration: var(--animation-duration);
+    }
+
+/* Marker path */
+
+.progress-step::after {
+      --bg: var(--path-bg);
+    }
+
+.progress-step:not(:last-child)::after {
+      content: "";
+      display: block;
+      position: absolute;
+      /* position: relative; */
+      order: -1;    
+      top: var(--path-position-block);
+      left: var(--path-position-inline);
+      width: var(--path-size-inline);
+      height: var(--path-size-block);
+      background-color: var(--bg);
+      transition: background-color, background-position;
+      transition-duration: var(--animation-duration);
+    }
+
+.progress-text {
+      padding: 8px;
+      overflow: hidden;
+      color: var(--text-color);
+      text-overflow: ellipsis;
+    }
+
+.progress-text > * + * {
+        margin-top: 4px;
+      }
+
+.progress-text:where(a, button) {
+        -webkit-text-decoration: none;
+        text-decoration: none;
+        text-align: inherit;
+        line-height: inherit;
+        color: inherit;
+        background: none;
+        border: none;
+      }
+
+.progress-text:where(a, button):hover {
+          cursor: pointer;
+          color: var(--text-color-hover);
+        }
+
+.progress-text:where(a, button):focus {
+          cursor: pointer;
+          color: var(--text-color-hover);
+        }
+
+.progress-title {
+        font-size: 1.5rem;
+      }
+
+/* States */
+
+.progress-step.is-active::before {
+          --bg: var(--marker-bg-active);
+        }
+
+.progress-step.is-active::after {
+          --bg: var(--path-bg-active);
+        }
+
+.progress-step.is-complete::before {
+          --bg: var(--marker-bg-complete);
+        }
+
+.progress-step.is-complete::after {
+          --bg: var(--path-bg-complete);
+        }
+
+.progress-step:not(.is-active):has(.progress-text:where(a, button)):hover::before {
+            --bg: var(--marker-bg-hover);
+            /* --color: var(--marker-color); */
+          }
+
+.progress-step:not(.is-active):has(.progress-text:where(a, button)):focus::before {
+            --bg: var(--marker-bg-hover);
+            /* --color: var(--marker-color); */
+          }
+
+/* Variants */
+
+.progress-tracker--marker-counter .progress-step::before {
+      content: counter(step);
+      counter-increment: step;
+    }
+
+.progress-tracker--marker-dataset .progress-step::before {
+      content: attr(data-text, "");
+    }
+
+.progress-tracker--marker-square {
+  --marker-size-block: 24px;
+  --marker-size-inline: 4px;
+  --path-position-block: calc(var(--marker-size-block) - var(--path-size-block));
+}
+
+.progress-tracker--marker-square .progress-step::before {
+      border-radius: 0;
+    }
+
+.progress-tracker--spaced {
+  --marker-spacing: 8px;
+}
+
+.progress-tracker--inline .progress-step {
+    align-items: center;
+    flex-direction: row;
+  }
+
+.progress-tracker--inline .progress-step::before {
+      flex-shrink: 0;
+      order: 2;
+    }
+
+.progress-tracker--inline .progress-step::after {
+      position: relative;
+      top: auto;
+      left: 0;
+      order: 3;
+    }
+
+.progress-tracker--inline .progress-text {
+      flex: 0 0 auto;
+      padding: 8px 12px;
+    }
+
+.progress-tracker--inline .progress-text:has(*:nth-child(2)) {
+        flex-basis: min-content;
+      }
+
+.progress-tracker--inline:not(.progress-tracker--inline-text-right) .progress-step:first-child .progress-text {
+      padding-left: 0;
+    }
+
+.progress-tracker--inline-text-right .progress-text {
+    order: 2;
+  }
+
+.progress-tracker--vertical {
+  flex-direction: column;
+}
+
+.progress-tracker--vertical .progress-step {
+    flex-direction: row;
+  }
+
+.progress-tracker--vertical .progress-step::after {
+      top: calc(var(--marker-size-block) + var(--marker-spacing));
+      left: var(--path-position-block);
+      width: var(--path-size-block);
+      height: var(--path-size-inline);
+    }
+
+.progress-tracker--vertical .progress-text {
+      flex-grow: 1;
+      padding-top: 4px;
+      padding-bottom: 12px;
+    }
+
+.progress-tracker--center {
+  --path-position-inline: calc(50% + (var(--marker-size-inline) / 2) + var(--marker-spacing));
+
+  text-align: center;
+}
+
+.progress-tracker--center:not(.progress-tracker--vertical) .progress-step::before {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+.progress-tracker--center.progress-tracker--vertical {
+    max-width: 240px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.progress-tracker--right {
+  --path-position-inline: calc(100% + var(--marker-spacing));
+
+  text-align: right;
+}
+
+.progress-tracker--right:not(.progress-tracker--vertical) .progress-step::before {
+      margin-left: auto;
+    }
+
+.progress-tracker--right.progress-tracker--vertical .progress-step {
+    flex-direction: row-reverse;
+  }
+
+.progress-tracker--right.progress-tracker--vertical .progress-step::after {
+      left: auto;
+      right: var(--path-position-block);
+    }
+
+.progress-tracker--reverse:not(.progress-tracker--vertical) .progress-step::after {
+      top: auto;
+      bottom: var(--path-position-block);
+    }
+
+.progress-tracker--reverse.progress-tracker--marker-square .progress-step::after {
+      top: auto;
+      bottom: 0;
+    }
+
+.progress-tracker--reverse .progress-text {
+      order: -1;
+      flex-grow: 1;
+    }
+
+/* .progress-tracker {
   display: flex;
   margin: 60px auto;
   padding: 0;
@@ -408,4 +707,6 @@
 }
 [dir=rtl] .progress-tracker--center .progress-marker::after {
   left: -50%;
-}
+} */
+
+/*# sourceMappingURL=progress-tracker.css.map */

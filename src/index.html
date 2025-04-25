@@ -3,1045 +3,613 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Progress Tracker - HTML component to illustrate the steps in a multi step process</title>
 
-    <link rel="stylesheet" href="styles/site.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cutive+Mono|Open+Sans:300,400&display=swap">
+    <title>Progress Tracker - Illustrate the steps in a multi step process like a form or a timeline</title>
+    <meta name="description" content="Illustrate the steps in a multi step process like a form or a timeline">
 
+    <meta property="og:title" content="Progress Tracker"> 
+    <meta property="og:description" content="Illustrate the steps in a multi step process like a form or a timeline">
+    <meta property="og:site_name" content="Progress Tracker">
+    <meta property="og:url" content="https://nigelotoole.github.io/progress-tracker/">
+    <meta property="og:image" content="https://nigelotoole.github.io/progress-tracker/images/progress-tracker-social.png">
+    <meta property="og:image:alt" content="Progress Tracker">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/progress-tracker.css">
   </head>
 
   <body>
 
-    <header class="header">
-      <nav class="container">
+    <header class="header fullwidth space--sm">
+      <div class="container">
 
-        <h1 class="logo-text">Progress Tracker</h1>
+        <h1 class="logo-text">Progress Tracker</h1> 
 
-        <nav class="header-links">
-          <a href="https://github.com/NigelOToole/progress-tracker/archive/master.zip" class="btn-demo btn-demo--white">Download</a>
-          <a href="https://github.com/NigelOToole/progress-tracker/" target="_blank" rel="noopener" class="btn-demo btn-demo--white">View on GitHub</a>
+        <nav class="nav header-nav">
+          <a href="https://github.com/NigelOToole/progress-tracker/archive/master.zip" class="btn btn--green btn--ghost"><span>Download</span></a>
+          <a href="https://github.com/NigelOToole/progress-tracker" class="btn btn--green btn--ghost"><span>GitHub <svg class="icon" aria-hidden="true" viewbox="0 0 24 24"><path d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"/></svg></span></a>
         </nav>
       </div>
     </header>
 
-
-    <div class="fullwidth">
-      <div class="container separator">
-        <h2 class="m-0">A HTML component to illustrate the steps in a multi step process e.g. a multi step form, a timeline or a quiz.</h2>
-      </div>
-    </div>
-
-
-    <div class="fullwidth">
-      <div class="container separator">
-
-        <h3>Basic usage</h3>
-
-        <ul class="progress-tracker">
-          <li class="progress-step is-complete">
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step is-complete">
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step is-active">
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker"></div>
-          </li>
-        </ul>
-
-      </div>
-    </div>
-
-
-    <div class="fullwidth">
-      <div class="container separator">
-        <h3>Center aligned</h3>
-
-        <ul class="progress-tracker progress-tracker--center">
-          <li class="progress-step is-complete">
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step is-complete">
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step is-active">
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker"></div>
-          </li>
-        </ul>
-
-      </div>
-    </div>
-
-
-    <div class="fullwidth">       
-      <div class="container separator">
-        <h3>Right aligned</h3>
-
-        <ul class="progress-tracker progress-tracker--right">
-          <li class="progress-step is-complete">
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step is-complete">
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step is-active">
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker"></div>
-          </li>
-        </ul>        
-      
-      </div>
-    </div>
-
-
-
-    <div class="fullwidth">       
-      <div class="container separator">
-        <h3>Text inside markers</h3>
-
-        <ul class="progress-tracker">
-          <li class="progress-step is-complete">
-            <div class="progress-marker" data-text="1"></div>
-          </li>
-
-          <li class="progress-step is-complete">
-            <div class="progress-marker" data-text="2"></div>
-          </li>
-
-          <li class="progress-step is-active" aria-current="step">
-            <div class="progress-marker" data-text="3"></div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker" data-text="A"></div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker" data-text="B"></div>
-          </li>
-        </ul>        
-      
-      </div>
-    </div>
-
-
-
-    <div class="fullwidth">       
-      <div class="container separator">
-        <h3>Spaced markers</h3>
-
-        <ul class="progress-tracker progress-tracker--spaced">
-          <li class="progress-step is-complete">
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step is-complete">
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step is-active">
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker"></div>
-          </li>
-        </ul>        
-      
-      </div>
-    </div>
-
-
-
-    <div class="fullwidth">       
-      <div class="container separator">
-        <h3>Border</h3>
-
-        <ul class="progress-tracker progress-tracker--border">
-          <li class="progress-step is-complete">
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step is-complete">
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step is-active">
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker"></div>
-          </li>
-        </ul>        
-      
-      </div>
-    </div>
-
-
-
-    <div class="fullwidth">       
-      <div class="container separator">
-        <h3>Color theme</h3>
-
-        <ul class="progress-tracker progress-tracker--theme-red">
-          <li class="progress-step is-complete">
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step is-complete">
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step is-active">
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker"></div>
-          </li>
-        </ul>        
-      
-      </div>
-    </div>
-
-
-
-
-    <div class="fullwidth">       
-      <div class="container separator">
-        <h3>Text on markers</h3>
-
-        <ul class="progress-tracker progress-tracker--text">
-          <li class="progress-step is-complete">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">Step 1</h4>
-              Summary text explaining this step to the user
-            </div>
-          </li>
-
-          <li class="progress-step is-complete">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">Step 2</h4>
-              Summary text explaining this step to the user
-            </div>
-          </li>
-
-          <li class="progress-step is-active" aria-current="step">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">Step 3</h4>
-              Summary text explaining this step to the user
-            </div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">Step 4</h4>
-              Shorter summary text
-            </div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">Step 5</h4>
-              Shorter summary text
-            </div>
-          </li>
-        </ul>        
-      
-      </div>
-    </div>
-
-
-
-    <div class="fullwidth">       
-      <div class="container separator">
-        <h3>Center aligned</h3>
-
-        <ul class="progress-tracker progress-tracker--text progress-tracker--center">
-          <li class="progress-step is-complete">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">Step 1</h4>
-              Summary text explaining this step to the user
-            </div>
-          </li>
-
-          <li class="progress-step is-complete">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">Step 2</h4>
-              Summary text explaining this step to the user
-            </div>
-          </li>
-
-          <li class="progress-step is-active" aria-current="step">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">Step 3</h4>
-              Summary text explaining this step to the user
-            </div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">Step 4</h4>
-              Shorter summary text
-            </div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">Step 5</h4>
-              Shorter summary text
-            </div>
-          </li>
-        </ul>        
-      
-      </div>
-    </div>
-
-
-
-    <div class="fullwidth">       
-      <div class="container separator">
-        <h3>Right aligned</h3>
-
-        <ul class="progress-tracker progress-tracker--text progress-tracker--right">
-          <li class="progress-step is-complete">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">Step 1</h4>
-              Summary text explaining this step to the user
-            </div>
-          </li>
-
-          <li class="progress-step is-complete">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">Step 2</h4>
-              Summary text explaining this step to the user
-            </div>
-          </li>
-
-          <li class="progress-step is-active" aria-current="step">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">Step 3</h4>
-              Summary text explaining this step to the user
-            </div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">Step 4</h4>
-              Shorter summary text
-            </div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">Step 5</h4>
-              Shorter summary text
-            </div>
-          </li>
-        </ul>        
-      
-      </div>
-    </div>
-
-
-
-    <div class="fullwidth">       
-      <div class="container separator">
-        <h3>Link surrounding each step</h3>
-
-        <ul class="progress-tracker progress-tracker--text">
-          <li class="progress-step is-complete">
-            <a href="#/">
-              <div class="progress-marker"></div>
-              <div class="progress-text">
-                <h4 class="progress-title">Step 1</h4>
-                Summary text explaining this step to the user
-              </div>
-            </a>
-          </li>
-
-          <li class="progress-step is-complete">
-            <a href="#/">
-              <div class="progress-marker"></div>
-              <div class="progress-text">
-                <h4 class="progress-title">Step 2</h4>
-                Summary text explaining this step to the user
-              </div>
-            </a>
-          </li>
-
-          <li class="progress-step is-active" aria-current="step">
-            <a href="#/">
-              <div class="progress-marker"></div>
-              <div class="progress-text">
-                <h4 class="progress-title">Step 3</h4>
-                Summary text explaining this step to the user
-              </div>
-            </a>
-          </li>
-
-          <li class="progress-step">
-            <a href="#/">
-              <div class="progress-marker"></div>
-              <div class="progress-text">
-                <h4 class="progress-title">Step 4</h4>
-                Shorter summary text
-              </div>
-            </a>
-          </li>
-
-          <li class="progress-step">
-            <a href="#/">
-              <div class="progress-marker"></div>
-              <div class="progress-text">
-                <h4 class="progress-title">Step 5</h4>
-                Shorter summary text
-              </div>
-            </a>
-          </li>
-        </ul>        
-      
-      </div>
-    </div>
-
-
-
-    <div class="fullwidth">       
-      <div class="container separator">
-        <h3>Dots connecting text to markers</h3>
-
-        <ul class="progress-tracker progress-tracker--text">
-          <li class="progress-step is-complete">
-            <div class="progress-marker"></div>
-            <div class="progress-text progress-text--dotted progress-text--dotted-1">
-              <h4 class="progress-title">Step 1</h4>
-              Summary text explaining this step to the user
-            </div>
-          </li>
-
-          <li class="progress-step is-complete">
-            <div class="progress-marker"></div>
-            <div class="progress-text progress-text--dotted progress-text--dotted-3">
-              <h4 class="progress-title">Step 2</h4>
-              Summary text explaining this step to the user
-            </div>
-          </li>
-
-          <li class="progress-step is-active" aria-current="step">
-            <div class="progress-marker"></div>
-            <div class="progress-text progress-text--dotted progress-text--dotted-6">
-              <h4 class="progress-title">Step 3</h4>
-              Summary text explaining this step to the user
-            </div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker"></div>
-            <div class="progress-text progress-text--dotted progress-text--dotted-4">
-              <h4 class="progress-title">Step 4</h4>
-              Shorter summary text
-            </div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker"></div>
-            <div class="progress-text progress-text--dotted progress-text--dotted-8">
-              <h4 class="progress-title">Step 5</h4>
-              Shorter summary text
-            </div>
-          </li>
-        </ul>        
-      
-      </div>
-    </div>
-
-
-
-    <div class="fullwidth">       
-      <div class="container separator">
-        <h3>Text above markers</h3>
-
-        <ul class="progress-tracker progress-tracker--text progress-tracker--text-top">
-          <li class="progress-step is-complete">
-            <div class="progress-text">
-              <h4 class="progress-title">Step 1</h4>
-              Summary text explaining this step to the user
-            </div>
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step is-complete">
-            <div class="progress-text">
-              <h4 class="progress-title">Step 2</h4>
-              Summary text explaining this step to the user
-            </div>
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step is-active" aria-current="step">
-            <div class="progress-text">
-              <h4 class="progress-title">Step 3</h4>
-              Summary text explaining this step to the user
-            </div>
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-text">
-              <h4 class="progress-title">Step 4</h4>
-              Shorter summary text
-            </div>
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-text">
-              <h4 class="progress-title">Step 5</h4>
-              Shorter summary text
-            </div>
-            <div class="progress-marker"></div>
-          </li>
-        </ul>        
-      
-      </div>
-    </div>
-
-
-
-    <div class="fullwidth">       
-      <div class="container separator">
-        <h3>Text to the left of markers</h3>
-
-        <ul class="progress-tracker progress-tracker--text progress-tracker--text-inline progress-tracker--spaced">
-          <li class="progress-step is-complete">
-            <div class="progress-text">
-              <h4 class="progress-title">Step 1</h4>
-            </div>
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step is-complete">
-            <div class="progress-text">
-              <h4 class="progress-title">Step 2</h4>
-            </div>
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step is-active" aria-current="step">
-            <div class="progress-text">
-              <h4 class="progress-title">Step 3</h4>
-            </div>
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-text">
-              <h4 class="progress-title">Step 4</h4>
-            </div>
-            <div class="progress-marker"></div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-text">
-              <h4 class="progress-title">Step 5</h4>
-            </div>
-            <div class="progress-marker"></div>
-          </li>
-        </ul>        
-      
-      </div>
-    </div>
-
-
-    <div class="fullwidth">       
-      <div class="container separator">
-        <h3>Text to the right of markers</h3>
-
-        <ul class="progress-tracker progress-tracker--text progress-tracker--text-inline progress-tracker--spaced">
-          <li class="progress-step is-complete">
-            <div class="progress-marker">
-              <div class="progress-text">
-                <h4 class="progress-title">Step 1</h4>
-              </div>
-            </div>
-          </li>
-
-          <li class="progress-step is-complete">
-            <div class="progress-marker">
-              <div class="progress-text">
-                <h4 class="progress-title">Step 2</h4>
-              </div>
-            </div>
-          </li>
-
-          <li class="progress-step is-active" aria-current="step">
-            <div class="progress-marker">
-              <div class="progress-text">
-                <h4 class="progress-title">Step 3</h4>
-              </div>
-            </div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker">
-              <div class="progress-text">
-                <h4 class="progress-title">Step 4</h4>
-              </div>
-            </div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker">
-              <div class="progress-text">
-                <h4 class="progress-title">Step 5</h4>
-              </div>
-            </div>
-          </li>
-        </ul>        
-      
-      </div>
-    </div>
-
-
-
-    <div class="fullwidth">       
-      <div class="container separator">
-        <h3>Square markers</h3>
-
-        <ul class="progress-tracker progress-tracker--text progress-tracker--square">
-          <li class="progress-step is-complete">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">Step 1</h4>
-            </div>
-          </li>
-
-          <li class="progress-step is-complete">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">Step 2</h4>
-            </div>
-          </li>
-
-          <li class="progress-step is-active" aria-current="step">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">Step 3</h4>
-            </div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">Step 4</h4>
-            </div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">Step 5</h4>
-            </div>
-          </li>
-        </ul>        
-      
-      </div>
-    </div>
-
-
-
-    <div class="fullwidth">       
-      <div class="container separator">
-        <h3>Small screen optimised &lt;=575px</h3>
-
-        <div class="progress-tracker-wrapper">
-
-          <ul class="progress-tracker progress-tracker--text">
-            <li class="progress-step is-complete">
-              <div class="progress-marker"></div>
-              <div class="progress-text">
-                <h4 class="progress-title">Step 1</h4>
-              </div>
-            </li>
-
-            <li class="progress-step is-complete">
-              <div class="progress-marker"></div>
-              <div class="progress-text">
-                <h4 class="progress-title">Step 2</h4>
-              </div>
-            </li>
-
-            <li class="progress-step is-active" aria-current="step">
-              <div class="progress-marker"></div>
-              <div class="progress-text">
-                <h4 class="progress-title">Step 3</h4>
-              </div>
-            </li>
-
-            <li class="progress-step">
-              <div class="progress-marker"></div>
-              <div class="progress-text">
-                <h4 class="progress-title">Step 4</h4>
-              </div>
-            </li>
-
-            <li class="progress-step">
-              <div class="progress-marker"></div>
-              <div class="progress-text">
-                <h4 class="progress-title">Step 5</h4>
-              </div>
-            </li>
-          </ul>        
-        
-        </div> 
-
-      </div>
-    </div>
-
-
-
-    <div class="fullwidth">       
-      <div class="container separator">
-        <h2>Animations</h2>
-        <p>The animation class can be applied to the progress tracker so each step has the same animation. Alternatively you can add the animation class to the progress step to have different animation on each step.</p>
-
-        <ul class="progress-tracker progress-tracker--text">
-          <li class="progress-step anim-ripple">
-            <a href="#/" class="progress-link">
-              <div class="progress-marker"></div>
-              <div class="progress-text">
-                <h4 class="progress-title">Ripple</h4>
-              </div>
-            </a>
-          </li>
-
-          <li class="progress-step anim-ripple anim--large">
-            <a href="#/" class="progress-link">
-              <div class="progress-marker"></div>
-              <div class="progress-text">
-                <h4 class="progress-title">Ripple large</h4>
-              </div>
-            </a>
-          </li>
-
-          <li class="progress-step anim-ripple-splash">
-            <a href="#/" class="progress-link">
-              <div class="progress-marker"></div>
-              <div class="progress-text">
-                <h4 class="progress-title">Ripple splash</h4>
-              </div>
-            </a>
-          </li>
-
-          <li class="progress-step anim-ripple-double">
-            <a href="#/" class="progress-link">
-              <div class="progress-marker anim-ripple-double"></div>
-              <div class="progress-text">
-                <h4 class="progress-title">Ripple double</h4>
-              </div>
-            </a>
-          </li>
-
-          <li class="progress-step anim-ripple-double anim--large">
-            <a href="#/" class="progress-link">
-              <div class="progress-marker"></div>
-              <div class="progress-text">
-                <h4 class="progress-title">Ripple double large</h4>
-              </div>
-            </a>
-          </li>
-        </ul>        
-      
-      </div>
-    </div>
-
-
-    <div class="fullwidth" id="anim-path">       
-      <div class="container separator">
-        <h3>Fill path between steps</h3>
-        <p>This site has some basic javascript to demonstrate this effect.</p>
-
-        <ul class="progress-tracker progress-tracker--text anim--path">
-          <li class="progress-step is-active" aria-current="step">
-            <a href="#/">
-              <div class="progress-marker"></div>
-              <div class="progress-text">
-                <h4 class="progress-title">Step 1</h4>
-              </div>
-            </a>
-          </li>
-
-          <li class="progress-step">
-            <a href="#/">
-              <div class="progress-marker"></div>
-              <div class="progress-text">
-                <h4 class="progress-title">Step 2</h4>
-              </div>
-            </a>
-          </li>
-
-          <li class="progress-step">
-            <a href="#/">
-              <div class="progress-marker"></div>
-              <div class="progress-text">
-                <h4 class="progress-title">Step 3</h4>
-              </div>
-            </a>
-          </li>
-
-          <li class="progress-step">
-            <a href="#/">
-              <div class="progress-marker"></div>
-              <div class="progress-text">
-                <h4 class="progress-title">Step 4</h4>
-              </div>
-            </a>
-          </li>
-
-          <li class="progress-step">
-            <a href="#/">
-              <div class="progress-marker"></div>
-              <div class="progress-text">
-                <h4 class="progress-title">Step 5</h4>
-              </div>
-            </a>
-          </li>
-        </ul>        
-      
-      </div>
-    </div>
-
-
-    <div class="fullwidth">       
-      <div class="container separator">
-        <h3>Partial fill of steps</h3>
-
-        <ul class="progress-tracker progress-tracker--text">
-          <li class="progress-step is-progress-10">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">10%</h4>
-            </div>
-          </li>
-
-          <li class="progress-step is-progress-30">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">30%</h4>
-            </div>
-          </li>
-
-          <li class="progress-step is-progress-50" aria-current="step">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">50%</h4>
-            </div>
-          </li>
-
-          <li class="progress-step is-progress-70">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">70%</h4>
-            </div>
-          </li>
-
-          <li class="progress-step is-progress-90">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">90%</h4>
-            </div>
-          </li>
-        </ul>        
-        
-      </div>
-    </div>
-
-
-
-    <div class="fullwidth"> 
-      <div class="container separator">
-        <h3>Vertical layout</h3>
-
-        <ul class="progress-tracker progress-tracker--vertical">
-          <li class="progress-step is-complete">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">Step 1</h4>
-              Summary text explaining this step to the user
-            </div>
-          </li>
-
-          <li class="progress-step is-complete">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">Step 2</h4>
-              Summary text explaining this step to the user
-            </div>
-          </li>
-
-          <li class="progress-step is-active" aria-current="step">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">Step 3</h4>
-              Summary text explaining this step to the user
-            </div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">Step 4</h4>
-              Summary text explaining this step to the user
-            </div>
-          </li>
-
-          <li class="progress-step">
-            <div class="progress-marker"></div>
-            <div class="progress-text">
-              <h4 class="progress-title">Step 5</h4>
-              Summary text explaining this step to the user
-            </div>
-          </li>
-        </ul>        
-      
-      </div>
-    </div>
-
-
-
-    <div class="fullwidth">
-      <div class="container separator">
-
-        <div class="subsection">
-          <h2>Installation</h2>
-
-<pre>
-<code>$ npm install progress-tracker --save-dev</code>
-</pre>
-
-        </div>
-
-        <div class="subsection">
+    <main id="main" class="main">
+
+      <section class="fullwidth intro">
+        <div class="container content flow">
+
+          <div class="heading page-intro">
+            <h2 class="page-heading">Show the steps in a multi step process like a form or a timeline.</h2>
+
+            <img src="images/progress-tracker-logo.svg" class="page-intro-img" width="80" height="80" alt="Progress Tracker logo">
+          </div>
+
+          <!-- <h3>Features</h3> 
+          <ul class="columns-sm-2">
+            <li>Native <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Share_API">Web Share API</a> is used if available</li>
+            <li>Copy to clipboard</li>
+            <li>Share directly to social platforms</li>
+            <li>Updates text on share success</li>
+          </ul> -->
           
-          <h2>Usage</h2>
+        </div>
+      </section>
 
-          <h3>Import</h3>
 
-          <p>After installation you can import it into your Sass files with the statement below.</p>
+      <section class="fullwidth demos">
+        <div class="container content flow">
 
-<pre><code>@import "node_modules/progress-tracker/src/styles/progress-tracker.scss";</code></pre>
+          <h2>Demos</h2>
 
-          <p>The JS that is part of this site is just for demonstration purposes, add your own JS as needed to toggle the classes for the step states.</p>
+          
+          <h3>Markers</h3>
 
-          <h3>Markup</h3>
+          <section class="demo demo--default">
+            <ol class="progress-tracker">
+              <li class="progress-step is-complete"></li>
+              <li class="progress-step is-complete"></li>
+              <li class="progress-step is-active"></li>
+              <li class="progress-step"></li>
+              <li class="progress-step"></li>
+            </ol>  
+          </section>
 
-          <p>Follow the HTML code example below for basic usage; each demo sets the first two steps as complete, the third step as active and the last two steps as inactive.</p>
+          <section class="demo demo--marker-counter">
+            <ol class="progress-tracker progress-tracker--marker-counter">
+              <li class="progress-step is-complete"></li>
+              <li class="progress-step is-complete"></li>
+              <li class="progress-step is-active"></li>
+              <li class="progress-step"></li>
+              <li class="progress-step"></li>
+            </ol>
+          </section>
 
-          <p>For additional styles add modifier classes and additional markup as needed in the examples below. You can add multiple modifier classes to achieve additional styles that those shown below.</p>
+          <section class="demo demo--marker-dataset">
+            <ol class="progress-tracker progress-tracker--marker-dataset">
+              <li class="progress-step is-complete" data-text="A1"></li>
+              <li class="progress-step is-complete" data-text="A2"></li>
+              <li class="progress-step is-active" data-text="X"></li>
+              <li class="progress-step" data-text="✓"></li>
+              <li class="progress-step" data-text="😃"></li>
+            </ol>
+          </section>
 
-<pre><code>&lt;ul class=&quot;progress-tracker&quot;&gt;
-  &lt;li class=&quot;progress-step is-complete&quot;&gt;
-    &lt;div class=&quot;progress-marker&quot;&gt;&lt;/div&gt;
+          <section class="demo demo--marker-dataset">
+            <ol class="progress-tracker progress-tracker--marker-square">
+              <li class="progress-step is-complete"></li>
+              <li class="progress-step is-complete"></li>
+              <li class="progress-step is-active"></li>
+              <li class="progress-step"></li>
+              <li class="progress-step"></li>
+            </ol>
+          </section>
+
+
+          <div class="section-heading">
+            <h3>Markers with text</h3>
+
+            <div class="demo-classes">
+              <label for="demo-classes--text">Layouts: </label>
+              <select id="demo-classes--text" class="select demo-class-update" data-target=".demo--text .progress-tracker">
+                <option value="" selected>Default</option>
+
+                <option value="progress-tracker--center">Center aligned</option>
+                <option value="progress-tracker--right">Right aligned</option>
+
+                <option value="progress-tracker--reverse">Reverse</option>
+                <option value="progress-tracker--reverse progress-tracker--center">Reverse center</option>
+                <option value="progress-tracker--reverse progress-tracker--right">Reverse right</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- <section class="demo demo--text">
+            <ol class="progress-tracker">
+              <li class="progress-step is-complete">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 1</h4>
+                  <p>Text explaining this step to the user.</p>
+                </div>
+              </li>
+    
+              <li class="progress-step is-complete">
+                <a href="#" class="progress-text">
+                  <h4 class="progress-title">Step 2</h4>
+                  <p>Text explaining this step to the user.</p>
+                </a>
+              </li>
+    
+              <li class="progress-step is-active" aria-current="step">
+                <button class="progress-text">
+                  <h4 class="progress-title">Step 3</h4>
+                  <p>Shorter text explanation.</p>
+                </button>
+              </li>
+    
+              <li class="progress-step">
+                <button class="progress-text">
+                  <h4 class="progress-title">Step 4</h4>
+                  <p>Shorter text explanation.</p>
+                </button>
+              </li>
+    
+              <li class="progress-step">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 5</h4>
+                </div>
+              </li>
+            </ol>
+          </section> -->
+
+          <section class="demo demo--text">
+            <ol class="progress-tracker">
+              <li class="progress-step is-complete">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 1</h4>
+                  <p>Text explaining this step to the user.</p>
+                </div>
+              </li>
+    
+              <li class="progress-step is-active">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 2</h4>
+                  <p>Text explaining this step to the user.</p>
+                </div>
+              </li>
+    
+              <li class="progress-step" aria-current="step">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 3</h4>
+                  <p>Shorter text explanation.</p>
+                </div>
+              </li>
+            </ol>
+          </section>
+
+          <section class="demo demo--text">
+            <ol class="progress-tracker progress-tracker--marker-square">
+              <li class="progress-step is-complete">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 1</h4>
+                  <p>Text explaining this step to the user.</p>
+                </div>
+              </li>
+    
+              <li class="progress-step is-active">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 2</h4>
+                  <p>Text explaining this step to the user.</p>
+                </div>
+              </li>
+    
+              <li class="progress-step" aria-current="step">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 3</h4>
+                  <p>Shorter text explanation.</p>
+                </div>
+              </li>
+            </ol>
+          </section>
+
+          <!-- <section class="demo demo--text">
+            <ol class="progress-tracker progress-tracker--reverse">
+              <li class="progress-step is-complete">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 1</h4>
+                  <p>Text explaining this step to the user.</p>
+                </div>
+              </li>
+    
+              <li class="progress-step is-active">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 2</h4>
+                  <p>Text explaining this step to the user.</p>
+                </div>
+              </li>
+    
+              <li class="progress-step" aria-current="step">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 3</h4>
+                  <p>Shorter text explanation.</p>                
+                </div>
+              </li>
+            </ol>
+          </section> -->
+
+          <!-- <section class="demo demo--text">
+            <ol class="progress-tracker progress-tracker--center">
+              <li class="progress-step is-complete">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 1</h4>
+                  <p>Text explaining this step to the user.</p>
+                </div>
+              </li>
+    
+              <li class="progress-step is-active">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 2</h4>
+                  <p>Text explaining this step to the user.</p>
+                </div>
+              </li>
+    
+              <li class="progress-step" aria-current="step">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 3</h4>
+                  <p>Shorter text explanation.</p>
+                </div>
+              </li>
+    
+
+            </ol>
+          </section>
+
+          <section class="demo demo--text">
+            <ol class="progress-tracker progress-tracker--right">
+              <li class="progress-step is-complete">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 1</h4>
+                  <p>Text explaining this step to the user.</p>
+                </div>
+              </li>
+    
+              <li class="progress-step is-active">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 2</h4>
+                  <p>Text explaining this step to the user.</p>
+                </div>
+              </li>
+    
+              <li class="progress-step" aria-current="step">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 3</h4>
+                  <p>Shorter text explanation.</p>
+                </div>
+              </li>
+            </ol>
+          </section> -->
+
+
+          <div class="section-heading">
+            <h3>Spaced</h3>
+
+            <div class="demo-classes">
+              <label for="demo-classes--spaced">Layouts: </label>
+              <select id="demo-classes--spaced" class="select demo-class-update" data-target=".demo--spaced .progress-tracker">
+                <option value="" selected>Default</option>
+
+                <option value="progress-tracker--center">Center aligned</option>
+                <option value="progress-tracker--right">Right aligned</option>
+
+                <option value="progress-tracker--reverse">Reverse</option>
+                <option value="progress-tracker--reverse progress-tracker--center">Reverse center</option>
+                <option value="progress-tracker--reverse progress-tracker--right">Reverse right</option>
+              </select>
+            </div>
+          </div>
+
+          <section class="demo demo--spaced">
+            <ol class="progress-tracker progress-tracker--spaced">
+              <li class="progress-step is-complete">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 1</h4>
+                  <p>Text explaining this step to the user.</p>
+                </div>
+              </li>
+    
+              <li class="progress-step is-active">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 2</h4>
+                  <p>Text explaining this step to the user.</p>
+                </div>
+              </li>
+    
+              <li class="progress-step" aria-current="step">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 3</h4>
+                  <p>Shorter text explanation.</p>
+                </div>
+              </li>
+            </ol>
+          </section>
+
+
+          <div class="section-heading">
+            <h3>Inline text</h3>
+          </div>
+
+          <section class="demo demo--inline">
+            <ol class="progress-tracker progress-tracker--inline">
+              <li class="progress-step is-complete">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 1</h4>
+                </div>
+              </li>
+    
+              <li class="progress-step is-active">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 2</h4>
+                </div>
+              </li>
+    
+              <li class="progress-step" aria-current="step">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 3</h4>
+                </div>
+              </li>
+            </ol>
+          </section>
+
+          <section class="demo demo--inline">
+            <ol class="progress-tracker progress-tracker--inline progress-tracker--inline-text-right">
+              <li class="progress-step is-complete">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 1</h4>
+                </div>
+              </li>
+    
+              <li class="progress-step is-active">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 2</h4>
+                </div>
+              </li>
+    
+              <li class="progress-step" aria-current="step">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 3</h4>
+                </div>
+              </li>
+            </ol>
+          </section>
+
+
+          <div class="section-heading">
+            <h3>Vertical</h3>
+
+            <div class="demo-classes">
+              <label for="demo-classes--vertical">Layouts: </label>
+              <select id="demo-classes--vertical" class="select demo-class-update" data-target=".demo--vertical .progress-tracker">
+                <option value="" selected>Default</option>
+                <option value="progress-tracker--center">Center aligned</option>
+                <option value="progress-tracker--right">Right aligned</option>
+              </select>
+            </div>
+          </div>
+
+          <section class="demo demo--vertical">
+            <ol class="progress-tracker progress-tracker--vertical">
+              <li class="progress-step is-complete">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 1</h4>
+                  <p>Text explaining this step to the user.</p>
+                </div>
+              </li>
+    
+              <li class="progress-step is-active">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 2</h4>
+                  <p>Text explaining this step to the user.</p>
+                </div>
+              </li>
+    
+              <li class="progress-step" aria-current="step">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 3</h4>
+                  <p>Shorter text explanation.</p>
+                </div>
+              </li>
+            </ol>
+          </section>
+
+
+          <div class="section-heading">
+            <h3>Vertical spaced</h3>
+
+            <div class="demo-classes">
+              <label for="demo-classes--vertical">Layouts: </label>
+              <select id="demo-classes--vertical" class="select demo-class-update" data-target=".demo--vertical-spaced .progress-tracker">
+                <option value="" selected>Default</option>
+                <option value="progress-tracker--center">Center aligned</option>
+                <option value="progress-tracker--right">Right aligned</option>
+              </select>
+            </div>
+          </div>
+
+          <section class="demo demo--vertical-spaced">
+            <ol class="progress-tracker progress-tracker--vertical progress-tracker--spaced">
+              <li class="progress-step is-complete">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 1</h4>
+                  <p>Text explaining this step to the user.</p>
+                </div>
+              </li>
+    
+              <li class="progress-step is-active">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 2</h4>
+                  <p>Text explaining this step to the user.</p>
+                </div>
+              </li>
+    
+              <li class="progress-step" aria-current="step">
+                <div class="progress-text">
+                  <h4 class="progress-title">Step 3</h4>
+                  <p>Shorter text explanation.</p>
+                </div>
+              </li>
+            </ol>
+          </section>
+
+
+        </div>
+      </section>
+
+
+      <section id="docs" class="fullwidth docs">
+        <div class="container content flow">
+
+          <h2 id="docs-installation">Installation</h2>
+
+<pre><code class="scroll-shadow-inline" tabindex="0">$ npm install progress-tracker --save-dev</code></pre>
+
+
+          <h2 id="docs-usage">Usage</h2>
+
+          <p>Add the CSS into your project and add the elements to your HTML.</p> 
+
+
+          <h3 id="docs-markup">Markup</h3>
+
+<pre><code class="scroll-shadow-inline" tabindex="0">&lt;ol class="progress-tracker"&gt;
+  &lt;li class="progress-step is-complete"&gt;
+    &lt;div class="progress-text"&gt; ... &lt;/div&gt;
   &lt;/li&gt;
-  &lt;li class=&quot;progress-step is-complete&quot;&gt;
-    &lt;div class=&quot;progress-marker&quot;&gt;&lt;/div&gt;
+  &lt;li class="progress-step is-active"&gt;
+    &lt;div class="progress-text"&gt; ... &lt;/div&gt;
   &lt;/li&gt;
-  &lt;li class=&quot;progress-step is-active&quot;&gt;
-    &lt;div class=&quot;progress-marker&quot;&gt;&lt;/div&gt;
+  &lt;li class="progress-step"&gt;
+    &lt;div class="progress-text"&gt; ... &lt;/div&gt;
   &lt;/li&gt;
-  &lt;li class=&quot;progress-step&quot;&gt;
-    &lt;div class=&quot;progress-marker&quot;&gt;&lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li class=&quot;progress-step&quot;&gt;
-    &lt;div class=&quot;progress-marker&quot;&gt;&lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+&lt;/ol&gt;
+</code></pre>
+
+
+<h3 id="docs-options">Options</h3>
+
+<p>Customize the appearance of the element by adding the variant classes as needed.</p>
+
+<div class="table-outer scroll-shadow-inline" tabindex="0">
+  <table class="table">
+    <tbody><tr>
+      <th>Class</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>progress-tracker</td>
+      <td>Default layout.</td>
+    </tr>
+
+    <tr>
+      <td>progress-tracker--marker-counter</td>
+      <td>Adds a numberic counter to the marker.</td>
+    </tr>
+    <tr>
+      <td>progress-tracker--marker-dataset</td>
+      <td>Adds text to the marker from data-text on the step.</td>
+    </tr>    
+    <tr>
+      <td>progress-tracker--marker-square</td>
+      <td>Square marker shape.</td>
+    </tr>
+    
+    <tr>
+      <td>progress-tracker--spaced</td>
+      <td>Space added around markers.</td>
+    </tr>  
+
+    <tr>
+      <td>progress-tracker--inline</td>
+      <td>Marker text is in line with the steps.</td>
+    </tr>  
+
+    <tr>
+      <td>progress-tracker--center</td>
+      <td>Center aligned layout.</td>
+    </tr>
+    <tr>
+      <td>progress-tracker--right</td>
+      <td>Right aligned layout.</td>
+    </tr>
+    
+    <tr>
+      <td>progress-tracker--reverse</td>
+      <td>Reversed layout, i.e. text on top.</td>
+    </tr>
+    
+    <tr>
+      <td>progress-tracker--vertical</td>
+      <td>Vertically aligned layout.</td>
+    </tr>
+
+  </tbody></table>
+  </div>
+
+        <h2 id="docs-compatibility">Compatibility</h2>
+        <p>Supports all modern browsers at the time of release.</p>
+
+
+        <h2 id="docs-demo-site">Demo site</h2>
+        <p>Clone the repo from Github and run the commands below.</p>
+
+<pre><code class="scroll-shadow-inline" tabindex="0">$ npm install
+$ npm run dev
 </code></pre>
 
         </div>
+      </section>
 
-        <div class="subsection">
-          <h3>Demo site</h3>
-          <p>Clone or download from Github.</p>
+    </main>
 
-<pre><code>$ npm install
-$ gulp serve
-</code></pre>
+    <footer class="fullwidth space--sm footer">
+      <div class="container content">
+        <div class="group share">
+          <h4 class="share-title">Share this</h4>
+
+          <share-url text-selector="span" maintain-size="true">
+            <button class="btn btn--icon-multi">
+              <span>Share link</span> 
+              <svg class="icon" aria-hidden="true" viewbox="0 0 24 24"><path d="m3.293 11.293 1.414 1.414L11 6.414V20h2V6.414l6.293 6.293 1.414-1.414L12 2.586l-8.707 8.707z"/></svg>
+              <svg class="icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="square" stroke-linejoin="arcs"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" fill="none" /><path d="M22 4 12 14.01l-3-3" fill="none"/></svg>
+            </button>
+          </share-url>
+          
+          <share-url action="clipboard" text-success="Copied" text-selector="span" maintain-size="true">
+            <button class="btn btn--icon-multi share-url">
+              <span>Copy link</span> 
+              <svg class="icon" viewbox="0 0 24 24"><rect x="8" y="3" width="13" height="13" rx="0" stroke-width="2" stroke-linecap="square" stroke-linejoin="arcs" fill="none"></rect><path d="M4 7v12c0 .6.4 1 1 1h12" stroke-width="2" stroke-linecap="square" stroke-linejoin="arcs" fill="none"></path></svg>
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="square" stroke-linejoin="arcs"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" fill="none" /><path d="M22 4 12 14.01l-3-3" fill="none"/></svg>
+            </button>
+          </share-url>
 
         </div>
-        
 
-      </div>
-    </div>
-
-
-
-    <footer class="fullwidth fullwidth--sm footer">
-      <div class="container">
-        Made by Nigel O Toole - <a href="http://www.purestructure.com" target="_blank" rel="noopener">pure structure</a>
+        <nav class="nav footer-nav">
+          <a href="http://www.purestructure.com/nigelotoole" rel="author">Made by Nigel O Toole</a>
+          <a href="https://github.com/nigelotoole" rel="external">GitHub</a>
+          <a data-encode="bWFpbHRvOnB1cmVAcHVyZXN0cnVjdHVyZS5jb20" data-encode-attribute="href" class="encode">Email</a>
+          <a href="http://www.purestructure.com" rel="external" class="w-100">PURE STRUCTURE</a>
+        </nav>
       </div>
     </footer>
 
-    <!-- This is just required for the fill path demo. -->
-    <script src="scripts/site.js"></script>
+
+    <script src="scripts/main.js" type="module"></script>
+    <script src="scripts/share-url-wc.js" type="module"></script>
+
 
   </body>
 </html>

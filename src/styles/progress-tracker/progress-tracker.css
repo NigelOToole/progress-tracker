@@ -1,4 +1,334 @@
+  /* --color-50: #f5f8ff;
+  --color-100: #c5d9ff;
+  --color-200: #99bdff;
+  --color-300: #6d9fff;
+  --color-400: #3f7eff;
+  --color-500: #0157ff;
+  --color-600: #0048d7;
+  --color-700: #0034a3;
+  --color-800: #002170;
+  --color-900: #001145; */
+
 .progress-tracker {
+  --marker-size: 32px;
+  --marker-size-block: 32px;
+  --marker-size-inline: var(--marker-size-block);
+  --marker-size-half: calc(var(--marker-size-block) * 0.5);
+  --marker-spacing: -1px; /* Fix for rounding errors */
+  
+  --marker-bg: #999;
+  --marker-bg-active: #0034a3;
+  --marker-bg-complete: #0157ff;
+  --marker-bg-hover: #3f7eff;
+  
+  --marker-color: #fff;
+
+
+  --path-size-block: 4px;
+  --path-size-inline: calc(100% - (var(--marker-size-inline) + (var(--marker-spacing) * 2)));
+  --path-position-block: calc(var(--marker-size-half) - (var(--path-size-block) * 0.5));
+  --path-position-inline: calc(var(--marker-size-inline) + var(--marker-spacing));
+
+  --path-bg: #999;
+  --path-bg-active: #999;
+  --path-bg-complete: #0157ff;
+
+
+  --text-color: #0034a3;
+  --text-color-hover: #0157ff;
+
+  --animation-duration: 0.3s;
+
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+  .progress-step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0%;
+    margin: 0;
+    padding: 0;
+
+    &:last-child:not(:has(.progress-text)) {
+      flex-grow: 0;
+    }
+
+    /* Marker shape */
+    &::before {
+      --bg: var(--marker-bg);
+      --color: var(--marker-color);
+
+      content: "";
+      position: relative;
+      z-index: 20;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: var(--marker-size-inline);
+      height: var(--marker-size-block);
+      border-radius: 50%;
+      color: var(--color);
+      background-color: var(--bg);
+
+      transition: background-color, border-color;
+      transition-duration: var(--animation-duration);
+    }
+
+    /* Marker path */
+    &::after {
+      --bg: var(--path-bg);
+    }
+
+    &:not(:last-child)::after {
+      content: "";
+      display: block;
+      position: absolute;
+      /* position: relative; */
+      order: -1;    
+      inset-block-start: var(--path-position-block);
+      inset-inline-start: var(--path-position-inline);
+      width: var(--path-size-inline);
+      height: var(--path-size-block);
+      background-color: var(--bg);
+      transition: background-color, background-position;
+      transition-duration: var(--animation-duration);
+    }
+  }
+
+    .progress-text {
+      padding: 8px;
+      overflow: hidden;
+      color: var(--text-color);
+      text-overflow: ellipsis; 
+      
+      > * + * {
+        margin-block-start: 4px;
+      }
+
+      &:where(a, button) {
+        text-decoration: none;
+        text-align: inherit;
+        line-height: inherit;
+        color: inherit;
+        background: none;
+        border: none;
+
+        &:is(:hover, :focus) {
+          cursor: pointer;
+          color: var(--text-color-hover);
+        }
+      }
+    }
+
+      .progress-title {
+        font-size: 1.5rem;
+      }
+
+
+/* States */
+
+    .progress-step {
+
+      &.is-active {
+        &::before {
+          --bg: var(--marker-bg-active);
+        }          
+        
+        &::after {
+          --bg: var(--path-bg-active);
+        }
+      }
+
+      &.is-complete {
+        &::before {
+          --bg: var(--marker-bg-complete);
+        }          
+        
+        &::after {
+          --bg: var(--path-bg-complete);
+        }
+      }
+
+      &:not(.is-active):has(.progress-text:where(a, button)) {
+        &:is(:hover, :focus) {
+          &::before {
+            --bg: var(--marker-bg-hover);
+            /* --color: var(--marker-color); */
+          }
+        }
+      }
+
+    }
+
+
+
+/* Variants */
+.progress-tracker--marker-counter {
+  .progress-step {
+    &::before {
+      content: counter(step);
+      counter-increment: step;
+    }
+  }
+}
+
+.progress-tracker--marker-dataset {
+  .progress-step {
+    &::before {
+      content: attr(data-text, "");
+    }
+  }
+}
+
+.progress-tracker--marker-square {
+  --marker-size-block: 24px;
+  --marker-size-inline: 4px;
+  --path-position-block: calc(var(--marker-size-block) - var(--path-size-block));
+
+  .progress-step {
+    &::before {
+      border-radius: 0;
+    }    
+  }
+}
+
+
+.progress-tracker--spaced {
+  --marker-spacing: 8px;
+}
+
+
+.progress-tracker--inline {
+  .progress-step {
+    align-items: center;
+    flex-direction: row;
+
+    &::before {
+      flex-shrink: 0;
+      order: 2;
+    }
+
+    &::after {
+      position: relative;
+      inset-block-start: auto;
+      inset-inline-start: 0;
+      order: 3;
+    }
+  }
+
+    .progress-text {
+      flex: 0 0 auto;
+      padding: 8px 12px;
+
+      &:has(*:nth-child(2)) {
+        flex-basis: min-content;
+      }
+    }
+  
+  &:not(.progress-tracker--inline-text-right) .progress-step:first-child {
+    .progress-text {
+      padding-inline-start: 0;
+    }
+  }
+}
+
+.progress-tracker--inline-text-right {
+  .progress-text {
+    order: 2;
+  }
+}
+
+
+.progress-tracker--vertical {
+  flex-direction: column;
+
+  .progress-step {
+    flex-direction: row;
+
+    &::after {
+      inset-block-start: calc(var(--marker-size-block) + var(--marker-spacing));
+      inset-inline-start: var(--path-position-block);
+      width: var(--path-size-block);
+      height: var(--path-size-inline);
+    }
+  }
+
+    .progress-text {
+      flex-grow: 1;
+      padding-block: 4px 12px;
+    }
+}
+
+
+.progress-tracker--center {
+  --path-position-inline: calc(50% + (var(--marker-size-inline) / 2) + var(--marker-spacing));
+
+  text-align: center;
+ 
+  &:not(.progress-tracker--vertical) .progress-step {
+    &::before {
+      margin-inline: auto;
+    }
+  }
+
+  &.progress-tracker--vertical {
+    max-width: 240px;
+    margin-inline: auto;
+  }
+}
+
+
+.progress-tracker--right {
+  --path-position-inline: calc(100% + var(--marker-spacing));
+
+  text-align: right;
+
+  &:not(.progress-tracker--vertical) .progress-step {
+    &::before {
+      margin-inline-start: auto;
+    }
+  }
+
+  &.progress-tracker--vertical .progress-step {
+    flex-direction: row-reverse;
+
+    &::after {
+      inset-inline-start: auto;
+      inset-inline-end: var(--path-position-block);
+    }
+  }
+}
+
+.progress-tracker--reverse {
+
+  &:not(.progress-tracker--vertical) .progress-step {
+    &::after {
+      inset-block-start: auto;
+      inset-block-end: var(--path-position-block);
+    }
+  }
+
+  &.progress-tracker--marker-square .progress-step {
+    &::after {
+      inset-block: auto 0;
+    }
+  }
+
+    .progress-text {
+      order: -1;
+      flex-grow: 1;
+    }
+}
+
+
+
+/* .progress-tracker {
   display: flex;
   margin: 60px auto;
   padding: 0;
@@ -40,6 +370,11 @@
   border-radius: 50%;
   transition: background-color, border-color;
   transition-duration: 0.3s;
+}
+@supports (x: attr(x type(*))) {
+  .progress-marker::before {
+    content: attr(data-text string, "");
+  }
 }
 .progress-marker::after {
   content: "";
@@ -403,4 +738,4 @@
 }
 [dir=rtl] .progress-tracker--center .progress-marker::after {
   left: -50%;
-}
+} */

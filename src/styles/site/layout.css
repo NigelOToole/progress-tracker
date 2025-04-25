@@ -1,0 +1,152 @@
+/* Spacing of components */
+.space, .fullwidth {
+  --layout-space: var(--layout-space-md);
+}
+
+.space--zero {
+  --layout-space: 0;
+}
+.space--xxs {
+  --layout-space: var(--layout-space-xxs);
+}
+.space--xs {
+  --layout-space: var(--layout-space-xs);
+}
+.space--sm {
+  --layout-space: var(--layout-space-sm);
+}
+.space--md {
+  --layout-space: var(--layout-space-md);
+}
+.space--lg {
+  --layout-space: var(--layout-space-lg);
+}
+.space--xl {
+  --layout-space: var(--layout-space-xl);
+}
+.space--xxl {
+  --layout-space: var(--layout-space-xxl);
+}
+
+.space {
+  padding: var(--layout-space);
+}
+
+.space--block {
+  padding-inline: 0;
+}
+
+.space--inline {
+  padding-block: 0;
+}
+
+
+
+/* Fullwidth */
+.fullwidth {
+}
+
+.main, .footer {
+  @media (--viewport-sm-up) {
+    padding-inline: var(--layout-gutter-inline);
+  }
+}
+
+  .container {
+    max-width: var(--layout-breakpoint-md);
+    padding-inline: var(--layout-gutter-inline);
+    margin-inline: auto;
+  }
+
+  .fullwidth > .container {
+    padding-block: var(--layout-space);
+  }
+
+
+/* Grid */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: var(--layout-gutter-inline);
+  margin-inline: calc(-1 * var(--layout-gutter-inline));
+
+  & > * {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-inline: var(--layout-gutter-inline);
+  }
+}
+
+@media (--viewport-md-up) {
+  .col-md-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+  }
+
+  .col-md-8 {
+    flex: 0 0 auto;
+    width: 66.66666667%;
+  }
+}
+
+@media (--viewport-lg-up) {
+  .col-lg-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+  }
+
+  .col-lg-8 {
+    flex: 0 0 auto;
+    width: 66.66666667%;
+  }
+}
+
+
+/* Flow */
+  .flow > * + * {
+    margin-block-start: var(--flow-space, 1.5rem);
+  }
+
+  .flow {
+    /* Large gap before headings and after h1 */
+    h1, h2, h3, h4, h1 + *, :is(.heading:has(h1)) + * {
+      --flow-space: var(--layout-space-lg);
+    }
+
+    /* Medium gap if a heading follows a heading */
+    h1 + h2, h2 + h3, h3 + h4, .heading + :is(h2, h3, h4) {
+      --flow-space: var(--layout-space-md);
+    }
+
+    /* Small gap directly after heading and inside heading wrapper */
+    :is(h2, h3, h4, .heading) + *, :is(h2, h3, h4, .heading) + p + *, &.heading > * + * {
+      --flow-space: var(--layout-space-sm);
+    }
+  }
+
+
+
+/* Group */
+.group, .nav {
+  --layout-space: var(--layout-space-sm);
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--layout-space);
+}
+
+/* .group--min {
+  > * > *:first-child {
+    &, & > *:first-child {
+      min-width: 144px;
+      text-align: center;
+    }
+  }
+} */
+
+
+/* Demos */
+.demos .container {
+  --flow-space: var(--layout-space-lg);
+}

@@ -1,0 +1,232 @@
+/* Type and background */
+body {
+  font-family: var(--body-font-family);
+  color: var(--color-700);
+  background-color: #fff;
+  background-image: repeating-linear-gradient(90deg, var(--bg-grid-color) 0, var(--bg-grid-color) var(--bg-grid-line), transparent 0, transparent 50%), repeating-linear-gradient(180deg, var(--bg-grid-color) 0, var(--bg-grid-color) var(--bg-grid-line), transparent 0, transparent 50%);
+  background-size: var(--bg-grid-box) var(--bg-grid-box);
+  background-position: calc(50% - (var(--bg-grid-line)/2)) top;
+}
+
+  .content {
+    background-color: #fff;
+    border-inline: calc(var(--bg-grid-line)/2) solid var(--bg-grid-color);
+  }
+
+::selection {
+  color: #fff;
+  background-color: var(--color-700);
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+  word-spacing: -.5ch;
+}
+
+h1, h2, h3 {
+  letter-spacing: -.025em;
+}
+
+h1, h2 {
+  font-weight: 600;
+}
+
+/* Clamp from 375 - 768px */
+h1 { font-size: 3rem; font-size: clamp(2.5rem, 2.0229rem + 2.0356vw, 3rem); }
+h2 { font-size: 2rem; font-size: clamp(1.5rem, 1.0229rem + 2.0356vw, 2rem); }
+h3 { font-size: 1.5rem; font-size: clamp(1.25rem, 1.0115rem + 1.0178vw, 1.5rem); }
+h4 { font-size: 1.25rem; font-size: clamp(1.125rem, 1.0057rem + 0.5089vw, 1.25rem); }
+h5 { font-size: 1rem; }
+h6 { font-size: 1rem; }
+
+p {
+
+}
+
+ul, ol {
+  padding-inline-start: var(--layout-space-md);
+}
+
+pre, code {
+  font-family: var(--heading-font-family);
+}
+
+a {
+  color: var(--link-color);
+  transition: color 0.3s;
+
+  &:hover, &:focus {
+    color: var(--link-color-hover);
+  }
+
+  &:focus-within {
+    outline: 2px solid var(--link-color);
+  }
+}
+
+
+/* Elements and utilities */
+html {
+  scroll-padding-block-start: var(--header-height);
+  scroll-behavior: smooth;
+}
+
+[id]:not(.fullwidth) {
+  scroll-margin-block-start: 1ex;
+}
+
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+
+code {
+  padding: .125rem;
+  background-color: var(--color-50);
+
+  pre & {
+    display: block;
+    padding: 1rem;
+    white-space: pre;
+    overflow: auto;
+    border: 1px solid var(--color-500);
+  }
+}
+
+
+.table-outer {
+  display: block;
+  width: 100%;
+}
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th, td {
+      padding: var(--layout-space-sm);
+      text-align: left;
+      vertical-align: top;
+      border: 1px solid var(--color-500);   
+    }
+
+    th {
+      background-color: var(--color-100);
+    }
+  }
+
+
+/* Scroll shadow for inline overflow */
+/* Inspired by https://daverupert.com/2023/08/animation-timeline-scroll-shadows/ */
+.scroll-shadow-inline {
+  --shadow-color: rgb(0 0 0 / .2);
+  --shadow-size: 8px;
+  --shadow-spread: calc(var(--shadow-size) * -.5);
+
+  overflow-x: auto;
+  overflow-inline: auto;
+
+  animation: scroll-shadow-inset linear;
+  scroll-timeline: --scroll-shadow-timeline inline;
+  animation-timeline: --scroll-shadow-timeline;
+
+  /* This is shorthand for the above using an anonymous timeline instead of a named one */
+  /* animation-timeline: scroll(self inline); */
+
+  /* Non-essential styles */
+  border: 1px solid var(--color-500);
+
+  /* Stops child elements with a background appearing above the shadow */
+  > * {
+    mix-blend-mode: multiply;
+  }
+
+  /* Fallback */
+  @supports not (animation-timeline: scroll(self inline)) {
+    /* Background color should be the same as the element */
+    --scroll-bg-color: #fff;
+    background-image:
+    linear-gradient(to right, var(--scroll-bg-color), var(--scroll-bg-color)), linear-gradient(to right, var(--scroll-bg-color), var(--scroll-bg-color)),
+    linear-gradient(to right, var(--shadow-color), transparent), linear-gradient(to left, var(--shadow-color), transparent);   
+    background-size: 
+    calc(var(--shadow-size) * 4) 100%, calc(var(--shadow-size) * 4) 100%, 
+    calc(var(--shadow-size) * 2) 100%, calc(var(--shadow-size) * 2) 100%;
+    background-position: left center, right center, left center, right center;
+    background-attachment: local, local, scroll, scroll;
+    background-repeat: no-repeat;
+  }  
+}
+
+.scroll-shadow-inline {
+  &.table-outer {
+    border-inline: 2px solid var(--color-500);
+  }
+
+  .table {
+    th, td {
+      &:first-child {
+        border-inline-start: none;
+      }
+
+      &:last-child {
+        border-inline-end: none;
+      } 
+    }
+  }
+
+  code& {
+    --scroll-bg-color: var(--color-50);
+  }
+}
+
+/* Shadow animations */
+/* Right shadow, left shadow. Negative spread to prevent a shadow on the top and bottom of the element */
+@keyframes scroll-shadow-inset {
+  from {
+    box-shadow: 
+    inset calc(var(--shadow-size) * -2) 0 var(--shadow-size) var(--shadow-spread) var(--shadow-color), 
+    inset calc(var(--shadow-size) * 0) 0 var(--shadow-size) var(--shadow-spread) var(--shadow-color);
+  }  
+  10%, 90% {
+    box-shadow: 
+    inset calc(var(--shadow-size) * -1) 0 var(--shadow-size) var(--shadow-spread) var(--shadow-color), 
+    inset calc(var(--shadow-size) * 1) 0 var(--shadow-size) var(--shadow-spread) var(--shadow-color);
+  }
+  to {
+    box-shadow: 
+    inset calc(var(--shadow-size) * 0) 0 var(--shadow-size) var(--shadow-spread) var(--shadow-color), 
+    inset calc(var(--shadow-size) * 2) 0 var(--shadow-size) var(--shadow-spread) var(--shadow-color);
+  }
+}
+
+@keyframes scroll-shadow-inline-end {
+  from {
+    box-shadow: 
+    calc(var(--shadow-size) * 0) 0 var(--shadow-size) 0 var(--shadow-color);
+  }  
+  10%, 90% {
+    box-shadow: 
+    calc(var(--shadow-size) * 1) 0 var(--shadow-size) 0 var(--shadow-color);
+  }
+  to {
+    box-shadow: 
+    calc(var(--shadow-size) * 2) 0 var(--shadow-size) 0 var(--shadow-color);
+  }
+}
+
+
+/* Browser support message */
+.unsupported {
+  display: none;
+
+  &.is-active {
+    display: block;
+  }
+}

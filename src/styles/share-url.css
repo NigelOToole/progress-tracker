@@ -1,0 +1,55 @@
+.share-url, share-url button {
+  display: inline-flex;
+  gap: .25em;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  border: none;
+  background-color: #0157ff;
+  transition: all .25s;
+
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.share-url:hover, .share-url:focus, .share-url.is-active, share-url button:hover, share-url button:focus, share-url button.is-active {
+    color: #fff;
+    background-color: #0034a3;
+  }
+
+.share-url svg, share-url button svg {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    stroke: currentColor;
+  }
+
+.share-url:not(.is-active) svg:last-of-type, share-url button:not(.is-active) svg:last-of-type, .share-url.is-active svg:first-of-type, share-url button.is-active svg:first-of-type {
+    display: none;
+  }
+
+/* Fallback - If JS is unavailable or action is not available */
+
+.share-url fallback a, share-url button fallback a, .share-url fallback a:hover, share-url button fallback a:hover {
+      color: #fff;
+    }
+
+@media (scripting: enabled) {
+      .share-url:not(.is-fallback) fallback, share-url button:not(.is-fallback) fallback {
+        display: none;
+      }
+      .share-url.is-fallback:has(fallback) > *:not(fallback), share-url button.is-fallback:has(fallback) > *:not(fallback) {
+        display: none;
+      }
+  }
+
+@media (scripting: none) {
+      .share-url:has(fallback) > *:not(fallback), share-url button:has(fallback) > *:not(fallback) {
+        display: none;
+      }
+  }

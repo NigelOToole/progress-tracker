@@ -1,0 +1,106 @@
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('../fonts/source-code-pro.woff2') format('woff2');
+  display: swap;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('../fonts/work-sans.woff2') format('woff2');
+  display: swap;
+}
+
+
+:root {
+  /* Colours */
+  /* https://oklch-palette.vercel.app/#53.67,0.257,262.51,100, https://oklch.com/#53.67,0.257,262.51,100 */
+  --color-50: oklch(97.89% 0.01 267.36);
+  --color-100: oklch(93.51% 0.031 263.52);
+  --color-200: oklch(79.69% 0.102 262.19);
+  --color-300: oklch(71% 0.151 262.38);
+  --color-400: oklch(62.26% 0.203 262.51);
+  --color-500: oklch(53.67% 0.257 262.51);
+  --color-600: oklch(47.18% 0.226 262.46);
+  --color-700: oklch(38.31% 0.185 262.52);
+  --color-800: oklch(29.19% 0.141 262.52);
+  --color-900: oklch(20.92% 0.101 262.51);
+
+  --color-accent-500: oklch(77.31% 0.136 177.29);
+  --color-accent-700: oklch(50.9% 0.094 177.27);
+  
+  /* Type */
+  --sans-serif-font-family: system-ui, Arial, sans-serif;
+  --serif-font-family: 'Times New Roman', Times, serif;
+  /* --body-font-family: 'Work Sans', var(--sans-serif-font-family);
+  --heading-font-family: 'Source Code Pro', var(--sans-serif-font-family); */
+  --body-font-family: 'Work Sans', sans-serif;
+  --heading-font-family: 'Source Code Pro', monospace;
+
+  --text-color: var(--color-700);
+  --link-color: var(--color-500);
+  --link-color-hover: var(--color-700);
+
+  /* Layout */
+  --layout-breakpoint-xs: 0;
+  --layout-breakpoint-sm: 576px;
+  --layout-breakpoint-md: 768px;
+  --layout-breakpoint-lg: 992px;
+  --layout-breakpoint-xl: 1200px;
+  --layout-breakpoint-xxl: 1400px;
+
+  --layout-gutter-inline: 16px;
+  --layout-gutter-block: 0px;
+
+  --layout-space-xxs: 4px;
+  --layout-space-xs: 8px;
+  --layout-space-sm: 16px;
+  --layout-space-md: 32px;
+  --layout-space-lg: 48px;
+  --layout-space-xl: 64px;
+  --layout-space-xxl: 80px;
+
+  --ease-out-cubic: cubic-bezier(.215, .610, .355, 1);
+  --ease-in-out-cubic: cubic-bezier(.65, .05, .36, 1);
+
+  --bg-grid-color: rgba(238, 238, 238, .75);
+  --bg-grid-line: 2px;
+  --bg-grid-box: 48px;
+
+  @media (--viewport-md-up) {
+    --layout-gutter-inline: 24px;
+  }
+}
+
+@supports not (background-color: oklch(0%, 0, 0)) {
+  :root {
+    /* --color-50: #f0f5ff; */
+    --color-50: #f5f8ff;
+    /* --color-100: #c5d9ff; */
+    --color-100: #dfeaff;
+    --color-200: #99bdff;
+    --color-300: #6d9fff;
+    --color-400: #3f7eff;
+    --color-500: #0157ff;
+    --color-600: #0048d7;
+    --color-700: #0034a3;
+    --color-800: #002170;
+    --color-900: #001145;
+
+    --color-accent-500: #28d1b4;
+    --color-accent-700: #007765;
+  }
+}
+
+/* Custom media queries */
+@custom-media --viewport-xs-up (min-width: 480px);
+@custom-media --viewport-xs-down (max-width: 479px);
+@custom-media --viewport-sm-up (min-width: 576px);
+@custom-media --viewport-sm-down (max-width: 575px);
+@custom-media --viewport-md-up (min-width: 768px);
+@custom-media --viewport-md-down (max-width: 767px);
+@custom-media --viewport-lg-up (min-width: 992px);
+@custom-media --viewport-lg-down (max-width: 991px);
+@custom-media --viewport-xl-up (min-width: 1200px);
+@custom-media --viewport-xl-down (max-width: 1199px);
+@custom-media --viewport-xxl-up (min-width: 1400px);
+@custom-media --viewport-xxl-down (max-width: 1399px);

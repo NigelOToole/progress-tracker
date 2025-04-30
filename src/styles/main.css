@@ -901,15 +901,17 @@ a .icon, button .icon {
   width: 160px;
 } */
 /* Portfolio Image */
-body {
+/* body {
   scale: 1.565;
   transform-origin: top center;
 }
+
 .header {
   display: none;
 }
+
 .progress-text p {
   display: none !important;
-}
+} */
 
 /*# sourceMappingURL=main.css.map */

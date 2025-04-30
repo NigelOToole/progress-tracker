@@ -16,8 +16,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
     item.addEventListener('change', (event) => {
-      // let targetElement = document.querySelectorAll(item.dataset['target']);
-
       let oldClass = [];
       for (const option of event.target.options) {
         oldClass.push(option.value.split(' '))
@@ -27,10 +25,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
       let newClass = event.target.value.split(' ');
 
       for (const demo of targetElement) {
-        let oldClassToApply = oldClass.filter(x => !demo.updateClass.currentClass.includes(x));
-        let newClassToApply = newClass.filter(x => !demo.updateClass.currentClass.includes(x));
-
-        console.log(demo, demo.updateClass.currentClass, oldClass, oldClassToApply)
+        let oldClassToApply = oldClass.filter(item => !demo.updateClass.currentClass.includes(item));
+        let newClassToApply = newClass.filter(item => !demo.updateClass.currentClass.includes(item));
 
         for (const item of oldClassToApply) {
           let cssClass = item;
@@ -45,6 +41,34 @@ window.addEventListener('DOMContentLoaded', (event) => {
     })
     
 	};
+
+  const demoAnimButtons = document.querySelectorAll('.progress-tracker--anim button');
+
+  for (const item of demoAnimButtons) {
+    item.addEventListener('click', (event) => {
+      event.preventDefault();
+
+      for (const item of demoAnimButtons) {
+        item.closest('.progress-step').classList.remove('is-active');
+      }
+      
+      let step = item.closest('.progress-step');
+
+      if(!step.classList.contains('is-complete')) {
+        step.classList.add('is-complete');
+        if(step.nextElementSibling !== null) {
+          step.nextElementSibling.classList.add('is-active');
+        }
+      }
+      else {
+        step.classList.remove('is-complete');
+        if(step.previousElementSibling !== null) {
+          step.previousElementSibling.classList.remove('is-active');
+        }
+      }
+    });
+  }
+
 
 
   

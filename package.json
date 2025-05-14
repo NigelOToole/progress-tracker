@@ -1,5 +1,5 @@
 {
-  "name": "@nigelotoole/progress-tracker",
+  "name": "progress-tracker",
   "homepage": "https://nigelotoole.github.io/progress-tracker/",
   "author": "Nigel O Toole <pure@purestructure.com> (http://www.purestructure.com)",
   "description": "Illustrate the steps in a multi step process like a form or a timeline.",
@@ -47,6 +47,6 @@
     "dev:styles": "postcss src/styles/site/main.css src/styles/progress-tracker/progress-tracker.css --dir src/styles --watch",
     "build": "npm run clean && cross-env NODE_ENV=production concurrently \"npm:build:*\"",
     "build:styles": "postcss src/styles/site/main.css src/styles/progress-tracker/progress-tracker.css --dir src/styles",
-    "publish": "npm run build && npm publish --access public"
+    "publish:npm": "npm run build && npm publish --access public"
   }
 }

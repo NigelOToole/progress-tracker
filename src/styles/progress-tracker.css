@@ -303,5 +303,3 @@
   .progress-tracker--anim.progress-tracker--vertical .progress-step.is-complete:not(:last-child)::after {
         background-position: 100% -100%; 
       }
-
-/*# sourceMappingURL=progress-tracker.css.map */

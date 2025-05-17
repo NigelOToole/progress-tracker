@@ -178,9 +178,15 @@
   --marker-spacing: 8px;
 }
 
+  .progress-tracker--inline {
+  overflow: auto;
+}
+
   .progress-tracker--inline .progress-step {
     align-items: center;
     flex-direction: row;
+    min-width: -moz-fit-content;
+    min-width: fit-content;
   }
 
   .progress-tracker--inline .progress-step::before {

@@ -193,9 +193,12 @@
 
 
 .progress-tracker--inline {
+  overflow: auto;
+  
   .progress-step {
     align-items: center;
     flex-direction: row;
+    min-width: fit-content;
 
     &::before {
       flex-shrink: 0;

@@ -38,7 +38,7 @@
     "postcss-custom-media": "^10.0.2",
     "postcss-import": "^15.1.0",
     "postcss-preset-env": "^9.1.4",
-    "rimraf": "^5.0.5"
+    "rimraf": "^6.1.0"
   },
   "scripts": {
     "clean": "rimraf src/**/*.map",
